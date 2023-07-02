@@ -30,6 +30,8 @@ namespace CapaDatos
             dCargo = pCargo;
         }
 
+        public CDEmpleado (){}
+
         public int Id_Empleado
         {
             get { return dId_Empleado; }
@@ -102,15 +104,15 @@ namespace CapaDatos
                 sqlCon.Open();
 
                 sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.AddWithValue("@Nombre", objCDEmpleado.Nombre);
-                sqlCommand.Parameters.AddWithValue("@Apellido", objCDEmpleado.Apellido);
-                sqlCommand.Parameters.AddWithValue("@Direccion", objCDEmpleado.Direccion);
-                sqlCommand.Parameters.AddWithValue("@Telefono", objCDEmpleado.Telefono);
-                sqlCommand.Parameters.AddWithValue("@Fecha_Nac", objCDEmpleado.Fecha_Nac);
-                sqlCommand.Parameters.AddWithValue("@Cedula", objCDEmpleado.Cedula);
-                sqlCommand.Parameters.AddWithValue("@Estado", objCDEmpleado.Estado);
-                sqlCommand.Parameters.AddWithValue("@Sexo", objCDEmpleado.Sexo);
-                sqlCommand.Parameters.AddWithValue("@Cargo", objCDEmpleado.Cargo);
+                sqlCommand.Parameters.AddWithValue("@pNombre", objCDEmpleado.Nombre);
+                sqlCommand.Parameters.AddWithValue("@pApellido", objCDEmpleado.Apellido);
+                sqlCommand.Parameters.AddWithValue("@pDireccion", objCDEmpleado.Direccion);
+                sqlCommand.Parameters.AddWithValue("@pTelefono", objCDEmpleado.Telefono);
+                sqlCommand.Parameters.AddWithValue("@pFecha_Nac", objCDEmpleado.Fecha_Nac);
+                sqlCommand.Parameters.AddWithValue("@pCedula", objCDEmpleado.Cedula);
+                sqlCommand.Parameters.AddWithValue("@pEstado", objCDEmpleado.Estado);
+                sqlCommand.Parameters.AddWithValue("@pSexo", objCDEmpleado.Sexo);
+                sqlCommand.Parameters.AddWithValue("@pCargo", objCDEmpleado.Cargo);
 
                 mensaje = sqlCommand.ExecuteNonQuery() == 1 ? "Inserción de datos completada correctamente!" :
                     "No se pudo insertar correctamente los nuevos datos!";
@@ -140,16 +142,16 @@ namespace CapaDatos
                 sqlCon.Open();
 
                 sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.AddWithValue("@Id_Empleado", objCDEmpleado.Id_Empleado);
-                sqlCommand.Parameters.AddWithValue("@Nombre", objCDEmpleado.Nombre);
-                sqlCommand.Parameters.AddWithValue("@Apellido", objCDEmpleado.Apellido);
-                sqlCommand.Parameters.AddWithValue("@Direccion", objCDEmpleado.Direccion);
-                sqlCommand.Parameters.AddWithValue("@Telefono", objCDEmpleado.Telefono);
-                sqlCommand.Parameters.AddWithValue("@Fecha_Nac", objCDEmpleado.Fecha_Nac);
-                sqlCommand.Parameters.AddWithValue("@Cedula", objCDEmpleado.Cedula);
-                sqlCommand.Parameters.AddWithValue("@Estado", objCDEmpleado.Estado);
-                sqlCommand.Parameters.AddWithValue("@Sexo", objCDEmpleado.Sexo);
-                sqlCommand.Parameters.AddWithValue("@Cargo", objCDEmpleado.Cargo);
+                sqlCommand.Parameters.AddWithValue("@pId_Empleado", objCDEmpleado.Id_Empleado);
+                sqlCommand.Parameters.AddWithValue("@pNombre", objCDEmpleado.Nombre);
+                sqlCommand.Parameters.AddWithValue("@pApellido", objCDEmpleado.Apellido);
+                sqlCommand.Parameters.AddWithValue("@pDireccion", objCDEmpleado.Direccion);
+                sqlCommand.Parameters.AddWithValue("@pTelefono", objCDEmpleado.Telefono);
+                sqlCommand.Parameters.AddWithValue("@pFecha_Nac", objCDEmpleado.Fecha_Nac);
+                sqlCommand.Parameters.AddWithValue("@pCedula", objCDEmpleado.Cedula);
+                sqlCommand.Parameters.AddWithValue("@pEstado", objCDEmpleado.Estado);
+                sqlCommand.Parameters.AddWithValue("@pSexo", objCDEmpleado.Sexo);
+                sqlCommand.Parameters.AddWithValue("@pCargo", objCDEmpleado.Cargo);
 
                 mensaje = sqlCommand.ExecuteNonQuery() == 1 ? "Datos actualizados correctamente!" :
                     "No se pudo actualizar correctamente los datos!";
@@ -181,10 +183,6 @@ namespace CapaDatos
                     sqlCommand.CommandText = "EmpleadoConsultar";
                     sqlCommand.CommandType = CommandType.StoredProcedure;
                     sqlCommand.Parameters.AddWithValue("@pId_Empleado", miparametro);
-                    sqlCommand.Parameters.AddWithValue("@pNombre", miparametro);
-                    sqlCommand.Parameters.AddWithValue("@pApellido", miparametro);
-                    sqlCommand.Parameters.AddWithValue("@pCedula", miparametro);
-                    sqlCommand.Parameters.AddWithValue("@pCargo", miparametro);
                     leerDatos = sqlCommand.ExecuteReader();
                     dt.Load(leerDatos);
                     sqlCommand.Connection.Close();

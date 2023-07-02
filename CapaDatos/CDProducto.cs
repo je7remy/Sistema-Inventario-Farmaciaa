@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Data.Sql;
 
+
 namespace CapaDatos
 {
     public class CDProducto
@@ -30,8 +31,11 @@ namespace CapaDatos
             dRepresentacion_Grafica = pRepresentacion_Grafica;
             dExistencia = pExistencia;
             dPrecio_De_Venta = pPrecio_De_Venta;
-        }
 
+        }
+        
+        public CDProducto() { }
+       
         public int Id_Producto
         {
             get { return dId_Producto; }
@@ -98,14 +102,14 @@ namespace CapaDatos
                 sqlCon.Open();
 
                 sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.AddWithValue("@Nombre", objCDProducto.Nombre);
-                sqlCommand.Parameters.AddWithValue("@Id_Categoria", objCDProducto.Id_Categoria);
-                sqlCommand.Parameters.AddWithValue("@Estado", objCDProducto.Estado);
-                sqlCommand.Parameters.AddWithValue("@Marca", objCDProducto.Marca);
-                sqlCommand.Parameters.AddWithValue("@Fecha_De_Vencimiento", objCDProducto.Fecha_De_Vencimiento);
-                sqlCommand.Parameters.AddWithValue("@Representacion_Grafica", objCDProducto.Representacion_Grafica);
-                sqlCommand.Parameters.AddWithValue("@Existencia", objCDProducto.Existencia);
-                sqlCommand.Parameters.AddWithValue("@Precio_De_Venta", objCDProducto.Precio_De_Venta);
+                sqlCommand.Parameters.AddWithValue("@pNombre", objCDProducto.Nombre);
+                sqlCommand.Parameters.AddWithValue("@pId_Categoria", objCDProducto.Id_Categoria);
+                sqlCommand.Parameters.AddWithValue("@pEstado", objCDProducto.Estado);
+                sqlCommand.Parameters.AddWithValue("@pMarca", objCDProducto.Marca);
+                sqlCommand.Parameters.AddWithValue("@pFecha_De_Vencimiento", objCDProducto.Fecha_De_Vencimiento);
+                sqlCommand.Parameters.AddWithValue("@pRepresentacion_Grafica", objCDProducto.Representacion_Grafica);
+                sqlCommand.Parameters.AddWithValue("@pExistencia", objCDProducto.Existencia);
+                sqlCommand.Parameters.AddWithValue("@pPrecio_De_Venta", objCDProducto.Precio_De_Venta);
 
                 mensaje = sqlCommand.ExecuteNonQuery() == 1 ? "Inserción de datos completada correctamente!" :
                     "No se pudo insertar correctamente los nuevos datos!";
@@ -135,15 +139,15 @@ namespace CapaDatos
                 sqlCon.Open();
 
                 sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.AddWithValue("@Id_Producto", objCDProducto.Id_Producto);
-                sqlCommand.Parameters.AddWithValue("@Nombre", objCDProducto.Nombre);
-                sqlCommand.Parameters.AddWithValue("@Id_Categoria", objCDProducto.Id_Categoria);
-                sqlCommand.Parameters.AddWithValue("@Estado", objCDProducto.Estado);
-                sqlCommand.Parameters.AddWithValue("@Marca", objCDProducto.Marca);
-                sqlCommand.Parameters.AddWithValue("@Fecha_De_Vencimiento", objCDProducto.Fecha_De_Vencimiento);
-                sqlCommand.Parameters.AddWithValue("@Representacion_Grafica", objCDProducto.Representacion_Grafica);
-                sqlCommand.Parameters.AddWithValue("@Existencia", objCDProducto.Existencia);
-                sqlCommand.Parameters.AddWithValue("@Precio_De_Venta", objCDProducto.Precio_De_Venta);
+                sqlCommand.Parameters.AddWithValue("@pId_Producto", objCDProducto.Id_Producto);
+                sqlCommand.Parameters.AddWithValue("@pNombre", objCDProducto.Nombre);
+                sqlCommand.Parameters.AddWithValue("@pId_Categoria", objCDProducto.Id_Categoria);
+                sqlCommand.Parameters.AddWithValue("@pEstado", objCDProducto.Estado);
+                sqlCommand.Parameters.AddWithValue("@pMarca", objCDProducto.Marca);
+                sqlCommand.Parameters.AddWithValue("@pFecha_De_Vencimiento", objCDProducto.Fecha_De_Vencimiento);
+                sqlCommand.Parameters.AddWithValue("@pRepresentacion_Grafica", objCDProducto.Representacion_Grafica);
+                sqlCommand.Parameters.AddWithValue("@pExistencia", objCDProducto.Existencia);
+                sqlCommand.Parameters.AddWithValue("@pPrecio_De_Venta", objCDProducto.Precio_De_Venta);
 
                 mensaje = sqlCommand.ExecuteNonQuery() == 1 ? "Datos actualizados correctamente!" :
                     "No se pudo actualizar correctamente los datos!";
@@ -160,7 +164,7 @@ namespace CapaDatos
 
             return mensaje;
         }
-
+       
         public DataTable ProductoConsultar(string miparametro)
         {
             DataTable dt = new DataTable();
@@ -175,13 +179,6 @@ namespace CapaDatos
                     sqlCommand.CommandText = "ProductoConsultar";
                     sqlCommand.CommandType = CommandType.StoredProcedure;
                     sqlCommand.Parameters.AddWithValue("@pId_Producto", miparametro);
-                    sqlCommand.Parameters.AddWithValue("@pNombre", miparametro);
-                    sqlCommand.Parameters.AddWithValue("@pId_Categoria", miparametro);
-                    sqlCommand.Parameters.AddWithValue("@pEstado", miparametro);
-                    sqlCommand.Parameters.AddWithValue("@pMarca", miparametro);
-                    sqlCommand.Parameters.AddWithValue("@pFecha_De_Vencimiento", miparametro);
-                    sqlCommand.Parameters.AddWithValue("@pExistencia", miparametro);
-                    sqlCommand.Parameters.AddWithValue("@pPrecio_De_Venta", miparametro);
                     leerDatos = sqlCommand.ExecuteReader();
                     dt.Load(leerDatos);
                     sqlCommand.Connection.Close();

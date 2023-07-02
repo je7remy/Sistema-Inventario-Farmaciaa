@@ -26,6 +26,9 @@ namespace CapaDatos
             dFecha = pFecha;
         }
 
+
+        public CDMovimientoInventario() { }
+
         public int Id_Inventario
         {
             get { return dId_Inventario; }
@@ -74,11 +77,11 @@ namespace CapaDatos
                 sqlCon.Open();
 
                 sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.AddWithValue("@Id_Producto", objCDMovimientoInventario.Id_Producto);
-                sqlCommand.Parameters.AddWithValue("@Cantidad", objCDMovimientoInventario.Cantidad);
-                sqlCommand.Parameters.AddWithValue("@Tipo_De_Movimiento", objCDMovimientoInventario.Tipo_De_Movimiento);
-                sqlCommand.Parameters.AddWithValue("@Id_Empleado", objCDMovimientoInventario.Id_Empleado);
-                sqlCommand.Parameters.AddWithValue("@Fecha", objCDMovimientoInventario.Fecha);
+                sqlCommand.Parameters.AddWithValue("@pId_Producto", objCDMovimientoInventario.Id_Producto);
+                sqlCommand.Parameters.AddWithValue("@pCantidad", objCDMovimientoInventario.Cantidad);
+                sqlCommand.Parameters.AddWithValue("@pTipo_De_Movimiento", objCDMovimientoInventario.Tipo_De_Movimiento);
+                sqlCommand.Parameters.AddWithValue("@pId_Empleado", objCDMovimientoInventario.Id_Empleado);
+                sqlCommand.Parameters.AddWithValue("@pFecha", objCDMovimientoInventario.Fecha);
 
                 mensaje = sqlCommand.ExecuteNonQuery() == 1 ? "Inserción de datos completada correctamente!" :
                     "No se pudo insertar correctamente los nuevos datos!";
@@ -108,12 +111,12 @@ namespace CapaDatos
                 sqlCon.Open();
 
                 sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.AddWithValue("@Id_Inventario", objCDMovimientoInventario.Id_Inventario);
-                sqlCommand.Parameters.AddWithValue("@Id_Producto", objCDMovimientoInventario.Id_Producto);
-                sqlCommand.Parameters.AddWithValue("@Cantidad", objCDMovimientoInventario.Cantidad);
-                sqlCommand.Parameters.AddWithValue("@Tipo_De_Movimiento", objCDMovimientoInventario.Tipo_De_Movimiento);
-                sqlCommand.Parameters.AddWithValue("@Id_Empleado", objCDMovimientoInventario.Id_Empleado);
-                sqlCommand.Parameters.AddWithValue("@Fecha", objCDMovimientoInventario.Fecha);
+                sqlCommand.Parameters.AddWithValue("@pId_Inventario", objCDMovimientoInventario.Id_Inventario);
+                sqlCommand.Parameters.AddWithValue("@pId_Producto", objCDMovimientoInventario.Id_Producto);
+                sqlCommand.Parameters.AddWithValue("@pCantidad", objCDMovimientoInventario.Cantidad);
+                sqlCommand.Parameters.AddWithValue("@pTipo_De_Movimiento", objCDMovimientoInventario.Tipo_De_Movimiento);
+                sqlCommand.Parameters.AddWithValue("@pId_Empleado", objCDMovimientoInventario.Id_Empleado);
+                sqlCommand.Parameters.AddWithValue("@pFecha", objCDMovimientoInventario.Fecha);
 
                 mensaje = sqlCommand.ExecuteNonQuery() == 1 ? "Datos actualizados correctamente!" :
                     "No se pudo actualizar correctamente los datos!";
@@ -145,10 +148,6 @@ namespace CapaDatos
                     sqlCommand.CommandText = "MovimientoInventarioConsultar";
                     sqlCommand.CommandType = CommandType.StoredProcedure;
                     sqlCommand.Parameters.AddWithValue("@pId_Inventario", miparametro);
-                    sqlCommand.Parameters.AddWithValue("@pId_Producto", miparametro);
-                    sqlCommand.Parameters.AddWithValue("@pTipo_De_Movimiento", miparametro);
-                    sqlCommand.Parameters.AddWithValue("@pId_Empleado", miparametro);
-                    sqlCommand.Parameters.AddWithValue("@pFecha", miparametro);
                     leerDatos = sqlCommand.ExecuteReader();
                     dt.Load(leerDatos);
                     sqlCommand.Connection.Close();

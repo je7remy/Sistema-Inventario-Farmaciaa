@@ -29,6 +29,8 @@ namespace CapaDatos
             dDescripcion = pDescripcion;
         } //fin del método constructor con parámetros
 
+        public CDCategoria() { }
+
         #region metodos get y set
         public int Id_Categoria
         {
@@ -75,8 +77,8 @@ namespace CapaDatos
                 (usando el prefijo ( d ), por ejemplo: dSuplidor, o bien , hacerlo como se declaran en los métodos Get y 
                 Set.
                         */
-                micomando.Parameters.AddWithValue("@Categoria", objCDCategoria.Nombre);
-                micomando.Parameters.AddWithValue("@Categoria", objCDCategoria.Descripcion);
+                micomando.Parameters.AddWithValue("@pNombre", objCDCategoria.Nombre);
+                micomando.Parameters.AddWithValue("@pDescripcion", objCDCategoria.Descripcion);
 
 
                 /*Ejecuto la instrucción. Si se devuelve el valor 1 significa que todo funcionó correctamente de lo
@@ -112,9 +114,9 @@ namespace CapaDatos
                 SqlCommand micomando = new SqlCommand("CategoriaActualizar", sqlCon);
                 sqlCon.Open();
                 micomando.CommandType = CommandType.StoredProcedure;
-                micomando.Parameters.AddWithValue("@Categoria", objCDCategoria.Id_Categoria);
-                micomando.Parameters.AddWithValue("@Categoria", objCDCategoria.Nombre);
-                micomando.Parameters.AddWithValue("@Categoria", objCDCategoria.Descripcion);
+                micomando.Parameters.AddWithValue("@pId_Categoria", objCDCategoria.Id_Categoria);
+                micomando.Parameters.AddWithValue("@pNombre", objCDCategoria.Nombre);
+                micomando.Parameters.AddWithValue("@pDescripcion", objCDCategoria.Descripcion);
                 mensaje = micomando.ExecuteNonQuery() == 1 ? "Datos actualizados correctamente!" :
  "No se pudo actualizar correctamente los datos!";
             }
@@ -132,7 +134,7 @@ namespace CapaDatos
 
 
         //Método para consultar datos filtrados de la tabla. Se recibe el valor del parámetro
-        public DataTable SuplidorConsultar(String miparametro)
+        public DataTable CategoriaConsultar(String miparametro)
         {
             DataTable dt = new DataTable(); //Se Crea DataTable que tomará los datos de los Suplidores
             SqlDataReader leerDatos; //Creamos el DataReader
@@ -145,8 +147,6 @@ namespace CapaDatos
                     sqlCmd.CommandText = "CategoriaConsultar"; //Nombre del Proc. Almacenado a usar
                     sqlCmd.CommandType = CommandType.StoredProcedure; //Se trata de un proc. almacenado
                     sqlCmd.Parameters.AddWithValue("@pId_Categoria", miparametro); //Se pasa el valor a buscar
-                    sqlCmd.Parameters.AddWithValue("@pNombre", miparametro);
-                    sqlCmd.Parameters.AddWithValue("@Descripcion", miparametro);
                     leerDatos = sqlCmd.ExecuteReader(); //Llenamos el SqlDataReader con los datos resultantes
                     dt.Load(leerDatos); //Se cargan los registros devueltos al DataTable
                     sqlCmd.Connection.Close(); //Se cierra la conexión
