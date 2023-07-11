@@ -57,7 +57,7 @@ namespace CapaNegocio
         //Método utilizado para obtener un DataTable con todos los datos de la tabla 
         //correspondiente
 
-        public DataTable EmpleadoConsultar(string miparametro)
+        public DataTable EmpleadoConsultar(int v, string miparametro)
         {
             CDEmpleado objCDProducto = new CDEmpleado();
             DataTable dt = new DataTable(); //creamos un nuevo DataTable
@@ -66,6 +66,7 @@ namespace CapaNegocio
             return dt; //Se retorna el DataTable con los datos adquiridos
         }
 
+      
     }
 }
 

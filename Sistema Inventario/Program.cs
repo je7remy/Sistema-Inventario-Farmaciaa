@@ -5,9 +5,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Sistema_Inventario
-{
-    static class Program
+{  
+
+   public static class Program
     {
+       
+        public static bool nuevo;
+        public static bool modificar;
+        public static int vtextBox1;
+    
+
+        //public static int vtextBox2;
+        //public static int vtextBox2;
+
         /// <summary>
         /// Punto de entrada principal para la aplicación.
         /// </summary>
@@ -17,6 +27,7 @@ namespace Sistema_Inventario
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Fmenu());
+        
         }
     }
 }

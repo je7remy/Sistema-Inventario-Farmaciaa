@@ -17,10 +17,10 @@ namespace CapaDatos
         private string dNombre, dEstado, dMarca;
         private DateTime dFecha_De_Vencimiento;
         private string dRepresentacion_Grafica;
-        private decimal dPrecio_De_Venta;
+        private int dPrecio_De_Venta;
 
         public CDProducto(int pId_Producto, string pNombre, int pId_Categoria, string pEstado, string pMarca,
-            DateTime pFecha_De_Vencimiento, string pRepresentacion_Grafica, int pExistencia, decimal pPrecio_De_Venta)
+            DateTime pFecha_De_Vencimiento, string pRepresentacion_Grafica, int pExistencia, int pPrecio_De_Venta)
         {
             dId_Producto = pId_Producto;
             dNombre = pNombre;
@@ -84,7 +84,7 @@ namespace CapaDatos
             set { dExistencia = value; }
         }
 
-        public decimal Precio_De_Venta
+        public int Precio_De_Venta
         {
             get { return dPrecio_De_Venta; }
             set { dPrecio_De_Venta = value; }

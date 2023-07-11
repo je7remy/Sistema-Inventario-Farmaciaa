@@ -12,9 +12,11 @@ namespace Sistema_Inventario
 {
     public partial class Fmenu : Form
     {
+        
         public Fmenu()
         {
             InitializeComponent();
+            
         }
 
         private void categoriaToolStripMenuItem_Click(object sender, EventArgs e)

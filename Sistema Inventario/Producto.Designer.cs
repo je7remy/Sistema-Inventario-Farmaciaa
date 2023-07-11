@@ -45,18 +45,21 @@ namespace Sistema_Inventario
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.TId_producto = new System.Windows.Forms.TextBox();
+            this.TNombre = new System.Windows.Forms.TextBox();
+            this.TMarca = new System.Windows.Forms.TextBox();
+            this.CIdcategoria = new System.Windows.Forms.ComboBox();
+            this.CEstado = new System.Windows.Forms.ComboBox();
+            this.DFecha_vencimiento = new System.Windows.Forms.DateTimePicker();
             this.tooltipProducto = new System.Windows.Forms.ToolTip(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.TExistencia = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.TPrecio_venta = new System.Windows.Forms.TextBox();
+            this.TRepresentaciongrafica = new System.Windows.Forms.TextBox();
             this.Ptitulo.SuspendLayout();
             this.Pbotones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -85,7 +88,6 @@ namespace Sistema_Inventario
             this.label1.Size = new System.Drawing.Size(361, 36);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mantenimiento Producto\r\n";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // Pbotones
             // 
@@ -99,7 +101,7 @@ namespace Sistema_Inventario
             this.Pbotones.Controls.Add(this.Bguardar);
             this.Pbotones.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Pbotones.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Pbotones.Location = new System.Drawing.Point(0, 649);
+            this.Pbotones.Location = new System.Drawing.Point(0, 723);
             this.Pbotones.Name = "Pbotones";
             this.Pbotones.Size = new System.Drawing.Size(1081, 100);
             this.Pbotones.TabIndex = 1;
@@ -127,6 +129,7 @@ namespace Sistema_Inventario
             this.Bnuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.tooltipProducto.SetToolTip(this.Bnuevo, "Agregar nuevo producto");
             this.Bnuevo.UseVisualStyleBackColor = false;
+            this.Bnuevo.Click += new System.EventHandler(this.Bnuevo_Click);
             // 
             // Bsalir
             // 
@@ -195,6 +198,7 @@ namespace Sistema_Inventario
             this.Bcancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.tooltipProducto.SetToolTip(this.Bcancelar, "Cancelar cambios del producto");
             this.Bcancelar.UseVisualStyleBackColor = false;
+            this.Bcancelar.Click += new System.EventHandler(this.Bcancelar_Click);
             // 
             // Beditar
             // 
@@ -217,6 +221,7 @@ namespace Sistema_Inventario
             this.Beditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.tooltipProducto.SetToolTip(this.Beditar, "Editar cambios del producto");
             this.Beditar.UseVisualStyleBackColor = false;
+            this.Beditar.Click += new System.EventHandler(this.Beditar_Click);
             // 
             // Bguardar
             // 
@@ -239,6 +244,7 @@ namespace Sistema_Inventario
             this.Bguardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.tooltipProducto.SetToolTip(this.Bguardar, "Guardar cambios del producto");
             this.Bguardar.UseVisualStyleBackColor = false;
+            this.Bguardar.Click += new System.EventHandler(this.Bguardar_Click);
             // 
             // label2
             // 
@@ -300,48 +306,48 @@ namespace Sistema_Inventario
             this.label8.TabIndex = 8;
             this.label8.Text = "Estado";
             // 
-            // textBox1
+            // TId_producto
             // 
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(259, 128);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(251, 39);
-            this.textBox1.TabIndex = 11;
-            this.textBox1.Text = "01";
+            this.TId_producto.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TId_producto.Location = new System.Drawing.Point(259, 128);
+            this.TId_producto.Name = "TId_producto";
+            this.TId_producto.ReadOnly = true;
+            this.TId_producto.Size = new System.Drawing.Size(251, 39);
+            this.TId_producto.TabIndex = 11;
+            this.TId_producto.Text = "01";
             // 
-            // textBox2
+            // TNombre
             // 
-            this.textBox2.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(200, 186);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(310, 69);
-            this.textBox2.TabIndex = 12;
+            this.TNombre.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TNombre.Location = new System.Drawing.Point(200, 186);
+            this.TNombre.Multiline = true;
+            this.TNombre.Name = "TNombre";
+            this.TNombre.Size = new System.Drawing.Size(310, 69);
+            this.TNombre.TabIndex = 12;
             // 
-            // textBox3
+            // TMarca
             // 
-            this.textBox3.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(200, 274);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(310, 72);
-            this.textBox3.TabIndex = 13;
+            this.TMarca.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TMarca.Location = new System.Drawing.Point(200, 274);
+            this.TMarca.Multiline = true;
+            this.TMarca.Name = "TMarca";
+            this.TMarca.Size = new System.Drawing.Size(310, 72);
+            this.TMarca.TabIndex = 13;
             // 
-            // comboBox1
+            // CIdcategoria
             // 
-            this.comboBox1.AutoCompleteCustomSource.AddRange(new string[] {
+            this.CIdcategoria.AutoCompleteCustomSource.AddRange(new string[] {
             "01",
             "02",
             "03",
             "04",
             "05"});
-            this.comboBox1.BackColor = System.Drawing.Color.White;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.CIdcategoria.BackColor = System.Drawing.Color.White;
+            this.CIdcategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CIdcategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CIdcategoria.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CIdcategoria.FormattingEnabled = true;
+            this.CIdcategoria.Items.AddRange(new object[] {
             "Analgésicos",
             "Antiácidos",
             "Antiulcerosos",
@@ -349,39 +355,34 @@ namespace Sistema_Inventario
             "Antidiarreicos",
             "Laxantes",
             "Antiinfecciosos"});
-            this.comboBox1.Location = new System.Drawing.Point(773, 128);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(251, 39);
-            this.comboBox1.TabIndex = 19;
+            this.CIdcategoria.Location = new System.Drawing.Point(773, 128);
+            this.CIdcategoria.Name = "CIdcategoria";
+            this.CIdcategoria.Size = new System.Drawing.Size(251, 39);
+            this.CIdcategoria.TabIndex = 19;
             // 
-            // comboBox2
+            // CEstado
             // 
-            this.comboBox2.BackColor = System.Drawing.Color.White;
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox2.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.CEstado.BackColor = System.Drawing.Color.White;
+            this.CEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CEstado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CEstado.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CEstado.FormattingEnabled = true;
+            this.CEstado.Items.AddRange(new object[] {
             "Activo",
             "Inactivo"});
-            this.comboBox2.Location = new System.Drawing.Point(200, 471);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(251, 39);
-            this.comboBox2.TabIndex = 20;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.CEstado.Location = new System.Drawing.Point(200, 471);
+            this.CEstado.Name = "CEstado";
+            this.CEstado.Size = new System.Drawing.Size(251, 39);
+            this.CEstado.TabIndex = 20;
             // 
-            // dateTimePicker1
+            // DFecha_vencimiento
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(340, 380);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(170, 39);
-            this.dateTimePicker1.TabIndex = 23;
-            // 
-            // tooltipProducto
-            // 
-            this.tooltipProducto.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
+            this.DFecha_vencimiento.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DFecha_vencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DFecha_vencimiento.Location = new System.Drawing.Point(340, 380);
+            this.DFecha_vencimiento.Name = "DFecha_vencimiento";
+            this.DFecha_vencimiento.Size = new System.Drawing.Size(170, 39);
+            this.DFecha_vencimiento.TabIndex = 23;
             // 
             // button1
             // 
@@ -414,13 +415,13 @@ namespace Sistema_Inventario
             this.label9.TabIndex = 27;
             this.label9.Text = "Existencias";
             // 
-            // textBox4
+            // TExistencia
             // 
-            this.textBox4.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(259, 562);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(251, 39);
-            this.textBox4.TabIndex = 28;
+            this.TExistencia.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TExistencia.Location = new System.Drawing.Point(259, 562);
+            this.TExistencia.Name = "TExistencia";
+            this.TExistencia.Size = new System.Drawing.Size(251, 39);
+            this.TExistencia.TabIndex = 28;
             // 
             // pictureBox1
             // 
@@ -430,23 +431,52 @@ namespace Sistema_Inventario
             this.pictureBox1.TabIndex = 25;
             this.pictureBox1.TabStop = false;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(56, 652);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(187, 31);
+            this.label10.TabIndex = 29;
+            this.label10.Text = "Precio de venta";
+            // 
+            // TPrecio_venta
+            // 
+            this.TPrecio_venta.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TPrecio_venta.Location = new System.Drawing.Point(259, 649);
+            this.TPrecio_venta.Name = "TPrecio_venta";
+            this.TPrecio_venta.Size = new System.Drawing.Size(251, 39);
+            this.TPrecio_venta.TabIndex = 30;
+            // 
+            // TRepresentaciongrafica
+            // 
+            this.TRepresentaciongrafica.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TRepresentaciongrafica.Location = new System.Drawing.Point(584, 649);
+            this.TRepresentaciongrafica.Name = "TRepresentaciongrafica";
+            this.TRepresentaciongrafica.Size = new System.Drawing.Size(429, 39);
+            this.TRepresentaciongrafica.TabIndex = 31;
+            // 
             // Producto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1081, 749);
-            this.Controls.Add(this.textBox4);
+            this.ClientSize = new System.Drawing.Size(1081, 823);
+            this.Controls.Add(this.TRepresentaciongrafica);
+            this.Controls.Add(this.TPrecio_venta);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.TExistencia);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.DFecha_vencimiento);
+            this.Controls.Add(this.CEstado);
+            this.Controls.Add(this.CIdcategoria);
+            this.Controls.Add(this.TMarca);
+            this.Controls.Add(this.TNombre);
+            this.Controls.Add(this.TId_producto);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -464,7 +494,8 @@ namespace Sistema_Inventario
             this.Name = "Producto";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.Producto_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Producto_FormClosing);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Producto_KeyDown);
             this.Ptitulo.ResumeLayout(false);
             this.Ptitulo.PerformLayout();
             this.Pbotones.ResumeLayout(false);
@@ -491,17 +522,20 @@ namespace Sistema_Inventario
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox TId_producto;
+        private System.Windows.Forms.TextBox TNombre;
+        private System.Windows.Forms.TextBox TMarca;
+        private System.Windows.Forms.ComboBox CIdcategoria;
+        private System.Windows.Forms.ComboBox CEstado;
+        private System.Windows.Forms.DateTimePicker DFecha_vencimiento;
         private System.Windows.Forms.ToolTip tooltipProducto;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox TExistencia;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox TPrecio_venta;
+        private System.Windows.Forms.TextBox TRepresentaciongrafica;
     }
 }
