@@ -13,7 +13,7 @@ namespace CapaNegocio
     public class CNProducto
     {
         public static string Insertar(int pId_Producto, string pNombre, int pId_Categoria, string pEstado, string pMarca,
-            DateTime pFecha_De_Vencimiento, string pRepresentacion_Grafica, int pExistencia, int pPrecio_De_Venta)
+            DateTime pFecha_De_Vencimiento, string pRepresentacion_Grafica, int pExistencia, decimal pPrecio_De_Venta)
         {
 
             CDProducto objCDProducto = new CDProducto();
@@ -32,7 +32,7 @@ namespace CapaNegocio
 
 
         public static string Actualizar(int pId_Producto, string pNombre, int pId_Categoria, string pEstado, string pMarca,
-            DateTime pFecha_De_Vencimiento, string pRepresentacion_Grafica, int pExistencia, int pPrecio_De_Venta)
+            DateTime pFecha_De_Vencimiento, string pRepresentacion_Grafica, int pExistencia, decimal pPrecio_De_Venta)
         {
 
             CDProducto objCDProducto = new CDProducto();

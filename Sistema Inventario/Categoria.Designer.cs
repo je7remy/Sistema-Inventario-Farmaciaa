@@ -42,10 +42,10 @@ namespace Sistema_Inventario
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.TId_Categoria = new System.Windows.Forms.TextBox();
+            this.TDescripcion = new System.Windows.Forms.TextBox();
             this.toolTipempleado = new System.Windows.Forms.ToolTip(this.components);
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.CNombre_Categoria = new System.Windows.Forms.ComboBox();
             this.Ptitulo.SuspendLayout();
             this.Pbotones.SuspendLayout();
             this.SuspendLayout();
@@ -114,6 +114,7 @@ namespace Sistema_Inventario
             this.Bnuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolTipempleado.SetToolTip(this.Bnuevo, "Agregar nueva categoria");
             this.Bnuevo.UseVisualStyleBackColor = false;
+            this.Bnuevo.Click += new System.EventHandler(this.Bnuevo_Click);
             // 
             // Bsalir
             // 
@@ -182,6 +183,7 @@ namespace Sistema_Inventario
             this.Bcancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolTipempleado.SetToolTip(this.Bcancelar, "Cancelar cambios de categoria");
             this.Bcancelar.UseVisualStyleBackColor = false;
+            this.Bcancelar.Click += new System.EventHandler(this.Bcancelar_Click);
             // 
             // Beditar
             // 
@@ -204,6 +206,7 @@ namespace Sistema_Inventario
             this.Beditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolTipempleado.SetToolTip(this.Beditar, "Editar cambios de categoria");
             this.Beditar.UseVisualStyleBackColor = false;
+            this.Beditar.Click += new System.EventHandler(this.Beditar_Click);
             // 
             // Bguardar
             // 
@@ -226,12 +229,13 @@ namespace Sistema_Inventario
             this.Bguardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolTipempleado.SetToolTip(this.Bguardar, "Guardar cambios de categoria");
             this.Bguardar.UseVisualStyleBackColor = false;
+            this.Bguardar.Click += new System.EventHandler(this.Bguardar_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(563, 136);
+            this.label2.Location = new System.Drawing.Point(61, 144);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(165, 31);
             this.label2.TabIndex = 2;
@@ -241,7 +245,7 @@ namespace Sistema_Inventario
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(56, 136);
+            this.label3.Location = new System.Drawing.Point(600, 144);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(102, 31);
             this.label3.TabIndex = 3;
@@ -257,29 +261,29 @@ namespace Sistema_Inventario
             this.label4.TabIndex = 4;
             this.label4.Text = "Descripcion";
             // 
-            // textBox2
+            // TId_Categoria
             // 
-            this.textBox2.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(198, 133);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(312, 39);
-            this.textBox2.TabIndex = 12;
+            this.TId_Categoria.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TId_Categoria.Location = new System.Drawing.Point(241, 141);
+            this.TId_Categoria.Name = "TId_Categoria";
+            this.TId_Categoria.Size = new System.Drawing.Size(255, 39);
+            this.TId_Categoria.TabIndex = 12;
             // 
-            // textBox4
+            // TDescripcion
             // 
-            this.textBox4.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(259, 250);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox4.Size = new System.Drawing.Size(724, 147);
-            this.textBox4.TabIndex = 14;
+            this.TDescripcion.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TDescripcion.Location = new System.Drawing.Point(259, 250);
+            this.TDescripcion.Multiline = true;
+            this.TDescripcion.Name = "TDescripcion";
+            this.TDescripcion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.TDescripcion.Size = new System.Drawing.Size(724, 147);
+            this.TDescripcion.TabIndex = 14;
             // 
-            // comboBox1
+            // CNombre_Categoria
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.CNombre_Categoria.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CNombre_Categoria.FormattingEnabled = true;
+            this.CNombre_Categoria.Items.AddRange(new object[] {
             "Analgésicos",
             "Antiácidos",
             "Antiulcerosos",
@@ -287,10 +291,10 @@ namespace Sistema_Inventario
             "Antidiarreicos",
             "Laxantes",
             "Antiinfecciosos"});
-            this.comboBox1.Location = new System.Drawing.Point(728, 133);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(255, 39);
-            this.comboBox1.TabIndex = 15;
+            this.CNombre_Categoria.Location = new System.Drawing.Point(717, 141);
+            this.CNombre_Categoria.Name = "CNombre_Categoria";
+            this.CNombre_Categoria.Size = new System.Drawing.Size(255, 39);
+            this.CNombre_Categoria.TabIndex = 15;
             // 
             // Categoria
             // 
@@ -298,9 +302,9 @@ namespace Sistema_Inventario
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1043, 551);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.CNombre_Categoria);
+            this.Controls.Add(this.TDescripcion);
+            this.Controls.Add(this.TId_Categoria);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -316,7 +320,9 @@ namespace Sistema_Inventario
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Empleado";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Categoria_FormClosing);
             this.Load += new System.EventHandler(this.Categoria_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Categoria_KeyDown);
             this.Ptitulo.ResumeLayout(false);
             this.Ptitulo.PerformLayout();
             this.Pbotones.ResumeLayout(false);
@@ -339,9 +345,9 @@ namespace Sistema_Inventario
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox TId_Categoria;
+        private System.Windows.Forms.TextBox TDescripcion;
         private System.Windows.Forms.ToolTip toolTipempleado;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox CNombre_Categoria;
     }
 }

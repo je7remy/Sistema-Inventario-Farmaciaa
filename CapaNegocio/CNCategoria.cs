@@ -45,12 +45,13 @@ namespace CapaNegocio
         //Método utilizado para obtener un DataTable con todos los datos de la tabla 
         //correspondiente
 
-        public DataTable CategoriaConsultar(string miparametro)
+        public DataTable CategoriaConsultar(int v, string miparametro)
         {
             CDCategoria objCDCategoria = new CDCategoria();
             DataTable dt = new DataTable(); //creamos un nuevo DataTable
                                             //El DataTable se llena con todos los datos devueltos
             dt = objCDCategoria.CategoriaConsultar(miparametro);
+
             return dt; //Se retorna el DataTable con los datos adquiridos
         }
 

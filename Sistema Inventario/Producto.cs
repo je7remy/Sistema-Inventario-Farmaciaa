@@ -42,6 +42,9 @@ namespace Sistema_Inventario
             if (abririmagen.ShowDialog() == DialogResult.OK)
             {
                 pictureBox1.ImageLocation = abririmagen.FileName;
+                TRepresentaciongrafica.Text = abririmagen.FileName;
+                TRepresentaciongrafica.ReadOnly = true;
+
                 pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             }
         }
@@ -232,7 +235,7 @@ namespace Sistema_Inventario
                                                   DFecha_vencimiento.Value,
                                                   TRepresentaciongrafica.Text,
                                                   int.Parse(existencia), // Asumiendo que pExistencia es de tipo int
-                                                  int.Parse(precioventa)); // Asumiendo que pPrecio_De_Venta es de tipo int
+                                                  decimal.Parse(precioventa)); // Asumiendo que pPrecio_De_Venta es de tipo int
 
                 }
                 else //de lo contrario se Modificarán los datos del registro correspondiente
