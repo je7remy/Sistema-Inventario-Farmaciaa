@@ -266,6 +266,7 @@ namespace Sistema_Inventario
             this.TId_Categoria.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TId_Categoria.Location = new System.Drawing.Point(241, 141);
             this.TId_Categoria.Name = "TId_Categoria";
+            this.TId_Categoria.ReadOnly = true;
             this.TId_Categoria.Size = new System.Drawing.Size(255, 39);
             this.TId_Categoria.TabIndex = 12;
             // 
@@ -320,6 +321,7 @@ namespace Sistema_Inventario
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Empleado";
+            this.Activated += new System.EventHandler(this.Categoria_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Categoria_FormClosing);
             this.Load += new System.EventHandler(this.Categoria_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Categoria_KeyDown);

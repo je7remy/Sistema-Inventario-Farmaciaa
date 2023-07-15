@@ -344,7 +344,6 @@ namespace Sistema_Inventario
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(251, 39);
             this.textBox1.TabIndex = 11;
-            this.textBox1.Text = "01";
             // 
             // textBox2
             // 
@@ -494,7 +493,9 @@ namespace Sistema_Inventario
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Empleado";
+            this.Activated += new System.EventHandler(this.Empleado_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Empleado_FormClosing);
+            //this.Load += new System.EventHandler(this.Empleado_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Empleado_KeyDown);
             this.Ptitulo.ResumeLayout(false);
             this.Ptitulo.PerformLayout();

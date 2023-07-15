@@ -102,7 +102,7 @@ namespace Sistema_Inventario
                 TRepresentaciongrafica.Text = row["Representacion_Grafica"].ToString();
                 DFecha_vencimiento.Text = row["Fecha"].ToString();
                 TExistencia.Text = row["Existencias"].ToString();
-                CIdcategoria.Text = row["Id_Categoria"].ToString() ;
+                TIdcategoria.Text = row["Id_Categoria"].ToString() ;
                 TPrecio_venta.Text = row["Precio_Venta"].ToString();
                 
             }
@@ -124,14 +124,16 @@ namespace Sistema_Inventario
 
             if (DFecha_vencimiento.Value == DateTime.MinValue)
             {
-                DFecha_vencimiento.Text = "01/01/1111";
+                DFecha_vencimiento.Text = "01/01/1750";
             }
             TExistencia.Clear();
-            CIdcategoria.SelectedItem = 0;
+            TIdcategoria.Clear();
             CEstado.SelectedItem = 0;
-            pictureBox1.Dispose();
+            pictureBox1.Image = null;
+            TPrecio_venta.Clear();
+            TRepresentaciongrafica.Clear();
 
-            
+
         } //Fin del método LimpiaObjetos
 
 
@@ -145,15 +147,16 @@ namespace Sistema_Inventario
             TMarca.Enabled = valor; //la propiedad Enabled habilita o inhabilita un objeto
             TExistencia.Enabled = valor;
             //DFecha_vencimiento.Valor;
-            CIdcategoria.Enabled = valor;
+            TIdcategoria.Enabled = valor;
             CEstado.Enabled = valor;
             pictureBox1.Enabled = valor;
-           
-
-
+            TRepresentaciongrafica.Enabled = valor;
+            button1.Enabled = valor;
+            DFecha_vencimiento.Enabled = valor;
+            TPrecio_venta.Enabled = valor;
 
             if (Program.nuevo)
-            CIdcategoria.SelectedIndex = 0;
+            TIdcategoria.Clear();
             CEstado.SelectedIndex = 0;
           
         } //Fin del método HabilitaControles
@@ -170,12 +173,12 @@ namespace Sistema_Inventario
         private void Bguardar_Click(object sender, EventArgs e)
         {
             //Validamos los datos requeridos entes de Insertar o Actualizar
-            if (TId_producto.Text == String.Empty) //Si el textbox está vacío mostrar un error y ubicar 
-            { // el cursor en dicho textbox 
-                MessageBox.Show("Debe rellenar todos los campos!");
-                TId_producto.Focus();
-            }
-            else
+            //if (TId_producto.Text == String.Empty) //Si el textbox está vacío mostrar un error y ubicar 
+            //{ // el cursor en dicho textbox 
+            //    MessageBox.Show("Debe rellenar todos los campos!");
+            //    TId_producto.Focus();
+            //}
+            //else
             if (TNombre.Text == String.Empty)
             {
                 MessageBox.Show("Debe rellenar todos los campos!");
@@ -194,10 +197,10 @@ namespace Sistema_Inventario
                 TExistencia.Focus();
             }
             else
-            if (CIdcategoria.Text == String.Empty)
+            if (TIdcategoria.Text == String.Empty)
             {
                 MessageBox.Show("Debe rellenar todos los campos!");
-                CIdcategoria.Focus();
+                TIdcategoria.Focus();
             }
             else
             if (CEstado.Text == String.Empty)
@@ -206,12 +209,17 @@ namespace Sistema_Inventario
                 CEstado.Focus();
             }
             else
-            if (pictureBox1.Text == String.Empty)
+            if (TRepresentaciongrafica.Text == String.Empty)
             {
                 MessageBox.Show("Debe rellenar todos los campos!");
-                pictureBox1.Focus();
+              
             }
-            
+            else
+            if (TPrecio_venta.Text == String.Empty)
+            {
+                MessageBox.Show("Debe rellenar todos los campos!");
+                TPrecio_venta.Focus();
+            }
 
             else
             {
@@ -223,7 +231,7 @@ namespace Sistema_Inventario
                     //string existencia = TExistencias.Text;
                     //string existencia = TExistencia.ToString();
 
-                    string categoria = CIdcategoria.SelectedItem.ToString(); // Si CIdcategoria es un ComboBox
+                    string categoria = TIdcategoria.Text; // Si CIdcategoria es un ComboBox
                     string existencia = TExistencia.Text;
                     string precioventa = TPrecio_venta.Text;
 
@@ -246,7 +254,7 @@ namespace Sistema_Inventario
                     // como: textbox, combobox, DateTimePicker, etc.
                     //Los parámetros se pasan en el orden en que se reciben y con el tipo de dato esperado
 
-                    string categoria = CIdcategoria.SelectedItem.ToString(); 
+                    string categoria = TIdcategoria.Text; 
                     string existencia = TExistencia.Text;
                     string precioventa = TPrecio_venta.Text;
 
@@ -308,6 +316,16 @@ namespace Sistema_Inventario
             {
                 SendKeys.Send("{TAB}");
             }
+        }
+
+        private void Producto_Load(object sender, EventArgs e)
+        {
+            //Program.nuevo;
+        }
+
+        private void Producto_Activated(object sender, EventArgs e)
+        {
+            Program.nuevo = true;
         }
 
 

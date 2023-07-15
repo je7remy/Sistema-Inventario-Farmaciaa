@@ -20,6 +20,7 @@ namespace CapaNegocio
 
             objCDProducto.Id_Producto = pId_Producto;
             objCDProducto.Nombre = pNombre;
+            objCDProducto.Id_Categoria = pId_Categoria;
             objCDProducto.Estado = pEstado;
             objCDProducto.Marca = pMarca;
             objCDProducto.Fecha_De_Vencimiento = pFecha_De_Vencimiento;
@@ -38,6 +39,7 @@ namespace CapaNegocio
             CDProducto objCDProducto = new CDProducto();
             objCDProducto.Id_Producto = pId_Producto;
             objCDProducto.Nombre = pNombre;
+            objCDProducto.Id_Categoria = pId_Categoria;
             objCDProducto.Estado = pEstado;
             objCDProducto.Marca = pMarca;
             objCDProducto.Fecha_De_Vencimiento = pFecha_De_Vencimiento;

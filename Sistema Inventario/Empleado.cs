@@ -61,6 +61,7 @@ namespace Sistema_Inventario
             comboBox1.Enabled = valor;
             comboBox2.Enabled = valor;
             comboBox3.Enabled = valor;
+            dateTimePicker1.Enabled = valor;
             maskedTextBox1.Enabled = valor;
             maskedTextBox2.Enabled = valor;
 
@@ -126,13 +127,13 @@ namespace Sistema_Inventario
 
         private void Bguardar_Click(object sender, EventArgs e)
         {
-            //Validamos los datos requeridos entes de Insertar o Actualizar
-            if (textBox1.Text == String.Empty) //Si el textbox está vacío mostrar un error y ubicar 
-            { // el cursor en dicho textbox 
-                MessageBox.Show("Debe rellenar todos los campos!");
-                textBox1.Focus();
-            }
-            else
+            ////Validamos los datos requeridos entes de Insertar o Actualizar
+            //if (textBox1.Text == String.Empty) //Si el textbox está vacío mostrar un error y ubicar 
+            //{ // el cursor en dicho textbox 
+            //    MessageBox.Show("Debe rellenar todos los campos!");
+            //    textBox1.Focus();
+            //}
+            //else
             if (textBox2.Text == String.Empty)
             {
                 MessageBox.Show("Debe rellenar todos los campos!");
@@ -249,6 +250,7 @@ namespace Sistema_Inventario
 
         private void Beditar_Click(object sender, EventArgs e)
         {
+            
             //Si no ha seleccionado un Suplidor no se puede modificar
             if (!textBox1.Equals(""))
             {
@@ -290,6 +292,13 @@ namespace Sistema_Inventario
                 Bbuscar.Focus();
             }
         } //Fin del método Click del botón Buscar
+
+        private void Empleado_Activated(object sender, EventArgs e)
+        {
+            Program.nuevo = true;
+        }
+
+       
 
         public void RecuperaDatos()
         {

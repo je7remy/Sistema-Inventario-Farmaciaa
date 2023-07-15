@@ -50,7 +50,7 @@ namespace Sistema_Inventario
         {
             TId_Categoria.ReadOnly = true;
             TDescripcion.Enabled = valor;//la propiedad ReadOnly hace de solo lectura un objeto
-           
+            CNombre_Categoria.Enabled = valor;
             if (Program.nuevo)
                 CNombre_Categoria.SelectedIndex = 0;
         } //Fin del método HabilitaControles
@@ -110,12 +110,12 @@ namespace Sistema_Inventario
 
 
             //Validamos los datos requeridos entes de Insertar o Actualizar
-            if (TId_Categoria.Text == String.Empty) //Si el textbox está vacío mostrar un error y ubicar 
-            { // el cursor en dicho textbox 
-                MessageBox.Show("Debe rellenar todos los campos!");
-                TId_Categoria.Focus();
-            }
-            else
+            //if (TId_Categoria.Text == String.Empty) //Si el textbox está vacío mostrar un error y ubicar 
+            //{ // el cursor en dicho textbox 
+            //    MessageBox.Show("Debe rellenar todos los campos!");
+            //    TId_Categoria.Focus();
+            //}
+            //else
             if (CNombre_Categoria.Text == String.Empty)
             {
                 MessageBox.Show("Debe rellenar todos los campos!");
@@ -227,6 +227,10 @@ namespace Sistema_Inventario
             }
         }
 
+        private void Categoria_Activated(object sender, EventArgs e)
+        {
+            //Program.nuevo = true;
+        }
 
         public void RecuperaDatos()
         {

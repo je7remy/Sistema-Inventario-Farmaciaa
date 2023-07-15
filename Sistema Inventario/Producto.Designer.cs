@@ -48,7 +48,6 @@ namespace Sistema_Inventario
             this.TId_producto = new System.Windows.Forms.TextBox();
             this.TNombre = new System.Windows.Forms.TextBox();
             this.TMarca = new System.Windows.Forms.TextBox();
-            this.CIdcategoria = new System.Windows.Forms.ComboBox();
             this.CEstado = new System.Windows.Forms.ComboBox();
             this.DFecha_vencimiento = new System.Windows.Forms.DateTimePicker();
             this.tooltipProducto = new System.Windows.Forms.ToolTip(this.components);
@@ -60,6 +59,7 @@ namespace Sistema_Inventario
             this.label10 = new System.Windows.Forms.Label();
             this.TPrecio_venta = new System.Windows.Forms.TextBox();
             this.TRepresentaciongrafica = new System.Windows.Forms.TextBox();
+            this.TIdcategoria = new System.Windows.Forms.TextBox();
             this.Ptitulo.SuspendLayout();
             this.Pbotones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -314,7 +314,6 @@ namespace Sistema_Inventario
             this.TId_producto.ReadOnly = true;
             this.TId_producto.Size = new System.Drawing.Size(251, 39);
             this.TId_producto.TabIndex = 11;
-            this.TId_producto.Text = "01";
             // 
             // TNombre
             // 
@@ -333,32 +332,6 @@ namespace Sistema_Inventario
             this.TMarca.Name = "TMarca";
             this.TMarca.Size = new System.Drawing.Size(310, 72);
             this.TMarca.TabIndex = 13;
-            // 
-            // CIdcategoria
-            // 
-            this.CIdcategoria.AutoCompleteCustomSource.AddRange(new string[] {
-            "01",
-            "02",
-            "03",
-            "04",
-            "05"});
-            this.CIdcategoria.BackColor = System.Drawing.Color.White;
-            this.CIdcategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CIdcategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CIdcategoria.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CIdcategoria.FormattingEnabled = true;
-            this.CIdcategoria.Items.AddRange(new object[] {
-            "Analgésicos",
-            "Antiácidos",
-            "Antiulcerosos",
-            "Antialérgicos",
-            "Antidiarreicos",
-            "Laxantes",
-            "Antiinfecciosos"});
-            this.CIdcategoria.Location = new System.Drawing.Point(773, 128);
-            this.CIdcategoria.Name = "CIdcategoria";
-            this.CIdcategoria.Size = new System.Drawing.Size(251, 39);
-            this.CIdcategoria.TabIndex = 19;
             // 
             // CEstado
             // 
@@ -456,7 +429,14 @@ namespace Sistema_Inventario
             this.TRepresentaciongrafica.Name = "TRepresentaciongrafica";
             this.TRepresentaciongrafica.Size = new System.Drawing.Size(429, 39);
             this.TRepresentaciongrafica.TabIndex = 31;
-            this.TRepresentaciongrafica.Visible = false;
+            // 
+            // TIdcategoria
+            // 
+            this.TIdcategoria.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TIdcategoria.Location = new System.Drawing.Point(776, 128);
+            this.TIdcategoria.Name = "TIdcategoria";
+            this.TIdcategoria.Size = new System.Drawing.Size(251, 39);
+            this.TIdcategoria.TabIndex = 32;
             // 
             // Producto
             // 
@@ -464,6 +444,7 @@ namespace Sistema_Inventario
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1081, 823);
+            this.Controls.Add(this.TIdcategoria);
             this.Controls.Add(this.TRepresentaciongrafica);
             this.Controls.Add(this.TPrecio_venta);
             this.Controls.Add(this.label10);
@@ -474,7 +455,6 @@ namespace Sistema_Inventario
             this.Controls.Add(this.label7);
             this.Controls.Add(this.DFecha_vencimiento);
             this.Controls.Add(this.CEstado);
-            this.Controls.Add(this.CIdcategoria);
             this.Controls.Add(this.TMarca);
             this.Controls.Add(this.TNombre);
             this.Controls.Add(this.TId_producto);
@@ -495,7 +475,9 @@ namespace Sistema_Inventario
             this.Name = "Producto";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Activated += new System.EventHandler(this.Producto_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Producto_FormClosing);
+            this.Load += new System.EventHandler(this.Producto_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Producto_KeyDown);
             this.Ptitulo.ResumeLayout(false);
             this.Ptitulo.PerformLayout();
@@ -526,7 +508,6 @@ namespace Sistema_Inventario
         private System.Windows.Forms.TextBox TId_producto;
         private System.Windows.Forms.TextBox TNombre;
         private System.Windows.Forms.TextBox TMarca;
-        private System.Windows.Forms.ComboBox CIdcategoria;
         private System.Windows.Forms.ComboBox CEstado;
         private System.Windows.Forms.DateTimePicker DFecha_vencimiento;
         private System.Windows.Forms.ToolTip tooltipProducto;
@@ -538,5 +519,6 @@ namespace Sistema_Inventario
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox TPrecio_venta;
         private System.Windows.Forms.TextBox TRepresentaciongrafica;
+        private System.Windows.Forms.TextBox TIdcategoria;
     }
 }
