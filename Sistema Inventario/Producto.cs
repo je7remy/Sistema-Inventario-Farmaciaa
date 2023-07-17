@@ -88,22 +88,22 @@ namespace Sistema_Inventario
         public void RecuperaDatos()
         {
             string vparametro = Program.vtextBox1.ToString();
-            CNEmpleado CNEmpleado = new CNEmpleado();
+            CNProducto CNProducto = new CNProducto();
             DataTable dt = new DataTable(); //creamos un nuevo DataTable
-            dt = CNEmpleado.EmpleadoConsultar(1, vparametro); //Llenamos el DataTable
+            dt = CNProducto.ProductoObtener (vparametro); //Llenamos el DataTable
                                                               //Recorremos cada fila del DataTable asignando a los controles de edición los valores de 
                                                               //los campos correspondientes
             foreach (DataRow row in dt.Rows)
             {
-                TId_producto.Text = row["Id_Producto"].ToString();
+               // TId_producto.Text = row["Id_Producto"].ToString();
                 TNombre.Text = row["Nombre"].ToString();
                 CEstado.Text = row["Estado"].ToString();
                 TMarca.Text = row["Marca"].ToString();
                 TRepresentaciongrafica.Text = row["Representacion_Grafica"].ToString();
-                DFecha_vencimiento.Text = row["Fecha"].ToString();
-                TExistencia.Text = row["Existencias"].ToString();
-                TIdcategoria.Text = row["Id_Categoria"].ToString() ;
-                TPrecio_venta.Text = row["Precio_Venta"].ToString();
+                DFecha_vencimiento.Text = row["Fecha_De_Vencimiento"].ToString();
+                TExistencia.Text = row["Existencia"].ToString();
+                TIdcategoria.Text = row["Id_Categoria"].ToString();
+                TPrecio_venta.Text = row["Precio_De_Venta"].ToString();
                 
             }
         } //Fin del metodo RecuperarDatos
@@ -306,7 +306,7 @@ namespace Sistema_Inventario
             }
             else
             {
-                MessageBox.Show("Debe de buscar un Empleado para poder Modificar sus datos!");
+                MessageBox.Show("Debe de buscar un producto para poder Modificar sus datos!");
             }
         }
 
@@ -321,11 +321,29 @@ namespace Sistema_Inventario
         private void Producto_Load(object sender, EventArgs e)
         {
             //Program.nuevo;
+            TRepresentaciongrafica.TextChanged += TRepresentaciongrafica_TextChanged;
+            // Deshabilitar el TextBox
+            //TRepresentaciongrafica.Enabled = false;
         }
 
         private void Producto_Activated(object sender, EventArgs e)
         {
             Program.nuevo = true;
+        }
+
+        private void TRepresentaciongrafica_TextChanged(object sender, EventArgs e)
+        {
+            // Verificar si el texto del TextBox no está vacío
+            if (!string.IsNullOrEmpty(TRepresentaciongrafica.Text))
+            {
+                // Asignar la imagen del PictureBox usando la dirección de la imagen proporcionada por el TextBox
+                pictureBox1.ImageLocation = TRepresentaciongrafica.Text;
+
+                // Asegurarse de que la imagen se ajuste correctamente al tamaño del PictureBox
+                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                // Deshabilitar el TextBox
+                TRepresentaciongrafica.ReadOnly = true;
+            }
         }
 
 

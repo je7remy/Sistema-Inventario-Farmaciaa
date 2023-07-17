@@ -55,14 +55,62 @@ namespace CapaNegocio
         //Método utilizado para obtener un DataTable con todos los datos de la tabla 
         //correspondiente
 
-        public DataTable ProductoConsultar(string miparametro)
+        public DataTable ProductoObtener(string miparametro)
         {
             CDProducto objCDProducto = new CDProducto();
-            DataTable dt = new DataTable(); //creamos un nuevo DataTable
-                                            //El DataTable se llena con todos los datos devueltos
-            dt = objCDProducto.ProductoConsultar(miparametro);
-            return dt; //Se retorna el DataTable con los datos adquiridos
+            DataTable dt = new DataTable(); // Creamos un nuevo DataTable
+
+            // Creamos la conexión al procedimiento almacenado "ProductoConsultar"
+            using (SqlConnection sqlCon = new SqlConnection(InventarioConexion.miconexion))
+            {
+                using (SqlCommand sqlCommand = new SqlCommand("ProductoConsultar", sqlCon))
+                {
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+
+                    // Verificamos si el parámetro es numérico y válido, y lo pasamos al procedimiento
+                    if (!string.IsNullOrEmpty(miparametro) && int.TryParse(miparametro, out int idProducto))
+                    {
+                        sqlCommand.Parameters.AddWithValue("@pId_Producto", idProducto);
+                    }
+                    else
+                    {
+                        sqlCommand.Parameters.AddWithValue("@pId_Producto", DBNull.Value);
+                    }
+
+                    // Abrimos la conexión y ejecutamos el comando para llenar el DataTable con los datos del producto
+                    sqlCon.Open();
+                    SqlDataReader leerDatos = sqlCommand.ExecuteReader();
+                    dt.Load(leerDatos);
+                }
+            }
+
+            return dt; // Retornamos el DataTable con los datos del producto
         }
 
+
+
+        public DataTable ProductoObtenerTodos()
+        {
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;
+AttachDbFilename=C:\C#\Sistema-Inventario-Farmacia\CapaDatos\DBInventario.mdf;
+Integrated Security = True"; // Reemplaza esto con la cadena de conexión a tu base de datos
+            string consulta = "SELECT * FROM Producto"; // Reemplaza "tabla_empleados" con el nombre de tu tabla de empleados
+
+            DataTable dt = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(consulta, connection);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                dt.Load(reader);
+            }
+
+            return dt;
+        }
+
+
+       
     }
 }

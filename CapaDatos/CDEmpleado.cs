@@ -195,5 +195,35 @@ namespace CapaDatos
 
             return dt;
         }
+
+
+
+        public DataTable EmpleadoObtenerTodos()
+        {
+            DataTable dt = new DataTable();
+            SqlDataReader leerDatos;
+
+            try
+            {
+                using (SqlCommand sqlCommand = new SqlCommand())
+                {
+                    sqlCommand.Connection = new InventarioConexion().dbconexion;
+                    sqlCommand.Connection.Open();
+                    sqlCommand.CommandText = "SELECT * FROM Empleado"; // Reemplaza "Empleado" con el nombre de tu tabla de empleados
+                    leerDatos = sqlCommand.ExecuteReader();
+                    dt.Load(leerDatos);
+                    sqlCommand.Connection.Close();
+                }
+            }
+            catch (Exception)
+            {
+                dt = null;
+            }
+
+            return dt;
+        }
+
+
+
     }
 }

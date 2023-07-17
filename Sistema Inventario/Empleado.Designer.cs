@@ -375,7 +375,7 @@ namespace Sistema_Inventario
             // 
             this.maskedTextBox1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maskedTextBox1.Location = new System.Drawing.Point(259, 312);
-            this.maskedTextBox1.Mask = "(###) ### -####";
+            this.maskedTextBox1.Mask = "(###) ###-####";
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(251, 39);
             this.maskedTextBox1.TabIndex = 17;
@@ -493,9 +493,7 @@ namespace Sistema_Inventario
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Empleado";
-            this.Activated += new System.EventHandler(this.Empleado_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Empleado_FormClosing);
-            //this.Load += new System.EventHandler(this.Empleado_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Empleado_KeyDown);
             this.Ptitulo.ResumeLayout(false);
             this.Ptitulo.PerformLayout();

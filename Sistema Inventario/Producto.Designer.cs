@@ -429,6 +429,7 @@ namespace Sistema_Inventario
             this.TRepresentaciongrafica.Name = "TRepresentaciongrafica";
             this.TRepresentaciongrafica.Size = new System.Drawing.Size(429, 39);
             this.TRepresentaciongrafica.TabIndex = 31;
+            this.TRepresentaciongrafica.TextChanged += new System.EventHandler(this.TRepresentaciongrafica_TextChanged);
             // 
             // TIdcategoria
             // 

@@ -24,6 +24,7 @@ namespace Sistema_Inventario
         public Empleado()
         {
             InitializeComponent();
+            Program.nuevo = true;
 
         }
 
@@ -286,45 +287,51 @@ namespace Sistema_Inventario
                 Beditar_Click(sender, e); //Llamo al método editar
             }
             else
-               
- {
+
+            {
                 LimpiaObjetos(); //Llama al método LimpiaObjetos
                 Bbuscar.Focus();
-            }
-        } //Fin del método Click del botón Buscar
 
-        private void Empleado_Activated(object sender, EventArgs e)
-        {
-            Program.nuevo = true;
-        }
+
+
+            }
+
+            } //Fin del método Click del botón Buscar
 
        
+
+
 
         public void RecuperaDatos()
         {
             string vparametro = Program.vtextBox1.ToString();
             CNEmpleado CNEmpleado = new CNEmpleado();
-            DataTable dt = new DataTable(); //creamos un nuevo DataTable
-            dt = CNEmpleado.EmpleadoConsultar(1, vparametro); //Llenamos el DataTable
-                                                              //Recorremos cada fila del DataTable asignando a los controles de edición los valores de 
-                                                              //los campos correspondientes
-            foreach (DataRow row in dt.Rows)
+            DataTable dt = CNEmpleado.EmpleadoObtener(vparametro); //Llenamos el DataTable
+
+            if (dt.Rows.Count > 0)
             {
-                textBox1.Text = row["Id_Empleado"].ToString();
-                textBox2.Text = row["Nombre"].ToString();
-                comboBox1.Text = row["Sexo"].ToString();
-                maskedTextBox1.Text = row["Telefono"].ToString();
-                dateTimePicker1.Text = row["Fecha"].ToString();
-                textBox4.Text = row["Direccion"].ToString();
-                comboBox2.Text = row["Estado"].ToString();
-                textBox3.Text = row["Apellido"].ToString();
-                comboBox3.Text = row["Cargo"].ToString();
-                maskedTextBox2.Text = row["Cedula"].ToString();
+                DataRow row = dt.Rows[0];
+                textBox1.Text = row.Field<int>("Id_Empleado").ToString();
+                textBox2.Text = row.Field<string>("Nombre");
+                comboBox1.Text = row.Field<string>("Sexo");
+                maskedTextBox1.Text = row.Field<string>("Telefono");
+                dateTimePicker1.Value = row.Field<DateTime>("Fecha_Nac");
+                textBox4.Text = row.Field<string>("Direccion");
+                comboBox2.Text = row.Field<string>("Estado");
+                textBox3.Text = row.Field<string>("Apellido");
+                comboBox3.Text = row.Field<string>("Cargo");
+                maskedTextBox2.Text = row.Field<string>("Cedula");
             }
-        } //Fin del metodo RecuperarDatos
+            else
+            {
+                // No se encontraron datos para el Id_Empleado específico
+                // Puedes agregar aquí un mensaje de error o tomar alguna otra acción
+            }
+        }
+
     }
-    
-    
-    }
+
+
+}
 
 

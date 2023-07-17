@@ -102,6 +102,7 @@ namespace CapaDatos
                 sqlCon.Open();
 
                 sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@pId_Producto", objCDProducto.Id_Producto);
                 sqlCommand.Parameters.AddWithValue("@pNombre", objCDProducto.Nombre);
                 sqlCommand.Parameters.AddWithValue("@pId_Categoria", objCDProducto.Id_Categoria);
                 sqlCommand.Parameters.AddWithValue("@pEstado", objCDProducto.Estado);
@@ -165,6 +166,35 @@ namespace CapaDatos
             return mensaje;
         }
        
+        public DataTable ProductoObtener(string miparametro)
+        {
+            DataTable dt = new DataTable();
+            SqlDataReader leerDatos;
+
+            try
+            {
+                using (SqlCommand sqlCommand = new SqlCommand())
+                {
+                    sqlCommand.Connection = new InventarioConexion().dbconexion;
+                    sqlCommand.Connection.Open();
+                    sqlCommand.CommandText = "ProductoConsultar";
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.Parameters.AddWithValue("@pId_Producto", miparametro);
+                    leerDatos = sqlCommand.ExecuteReader();
+                    dt.Load(leerDatos);
+                    sqlCommand.Connection.Close();
+                }
+            }
+            catch (Exception)
+            {
+                dt = null;
+            }
+
+            return dt;
+        }
+
+
+
         public DataTable ProductoConsultar(string miparametro)
         {
             DataTable dt = new DataTable();
@@ -179,6 +209,35 @@ namespace CapaDatos
                     sqlCommand.CommandText = "ProductoConsultar";
                     sqlCommand.CommandType = CommandType.StoredProcedure;
                     sqlCommand.Parameters.AddWithValue("@pId_Producto", miparametro);
+                    leerDatos = sqlCommand.ExecuteReader();
+                    dt.Load(leerDatos);
+                    sqlCommand.Connection.Close();
+                }
+            }
+            catch (Exception)
+            {
+                dt = null;
+            }
+
+            return dt;
+        }
+
+
+
+
+
+        public DataTable ProductoObtenerTodos()
+        {
+            DataTable dt = new DataTable();
+            SqlDataReader leerDatos;
+
+            try
+            {
+                using (SqlCommand sqlCommand = new SqlCommand())
+                {
+                    sqlCommand.Connection = new InventarioConexion().dbconexion;
+                    sqlCommand.Connection.Open();
+                    sqlCommand.CommandText = "SELECT * FROM Producto"; // Reemplaza ... con el nombre de tu tabla ...
                     leerDatos = sqlCommand.ExecuteReader();
                     dt.Load(leerDatos);
                     sqlCommand.Connection.Close();
