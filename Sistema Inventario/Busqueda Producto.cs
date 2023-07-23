@@ -25,15 +25,15 @@ namespace Sistema_Inventario
         public Busqueda_Producto()
         {
             InitializeComponent();
-            //Program.nuevo = true;
-            
+            Program.nuevo = false;
+
         }
 
         private void Busqueda_Producto_Load(object sender, EventArgs e)
         {
             valorparametro = "";
             vtieneparametro = 0;
-            Program.vtextBox1 = 0; //variable global que tomará el valor seleccionado
+            Program.vId_Producto = 0; //variable global que tomará el valor seleccionado
             MostrarDatos(); //Llamo al Método que llena el DataGrid
             Tbuscar.Focus(); //El TextBox Buscar recibe el cursor
         }
@@ -69,9 +69,11 @@ namespace Sistema_Inventario
                 //variable global a toda la solución se hace verdadera y se le asigna a la variable global vidSuplidor 
                 // el valor de la clave correspondiente
                 Program.modificar = true;
-                Program.vtextBox1 = Convert.ToInt32(DGVDatos.CurrentRow.Cells[0].Value);
+                Program.vId_Producto = Convert.ToInt32(DGVDatos.CurrentRow.Cells[0].Value); //datagridview
+               // Program.vtextBox1 = Convert.ToInt32(DGVDatos.CurrentRow.Cells[1].Value); //btn buscar
             }
-            Close();
+            Close();
+
         }
 
         private void BPrimero_Click(object sender, EventArgs e)
@@ -131,7 +133,7 @@ namespace Sistema_Inventario
                 if (int.TryParse(DGVDatos.Rows[e.RowIndex].Cells["Id_Producto"].Value.ToString(), out int valor))
                 {
                     Program.modificar = true;
-                    Program.vtextBox1 = valor;
+                    Program.vId_Producto = valor;
                 }
                 Close();
             }
@@ -146,72 +148,100 @@ namespace Sistema_Inventario
                                      //Se coloca el signo % para que el dato indicado se busque en cualquier parte del campo
                 valorparametro = "%" + Tbuscar.Text.Trim() + "%";
                 //valorparametro = tbBuscar.Text.Trim();
+                MostrarDatos2();
             }
             else //si el textbox está vacío
             {
                 vtieneparametro = 0; //se indica que no se trabajará con parámetros
                 valorparametro = ""; //Se vuelve vacío la variable del parámetro.
+                MostrarDatos();
             }
-            MostrarDatos(); //Se llama al método MostrarDatos
-            MostrarDatos2();
+          //  MostrarDatos(); //Se llama al método MostrarDatos
+  
+    
+
         }
+
+
+
+        private void MostrarDatos2()
+        {
+            string valorparametro = Tbuscar.Text.Trim();
+            CNProducto CNProducto = new CNProducto();
+
+            // Aquí es donde se llama al método EmpleadoConsultarTodos de la clase CDEmpleado
+            DataTable dt = CNProducto.ProductoObtener(valorparametro);
+
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                DGVDatos.DataSource = dt;
+
+                if (dt.Columns.Count >= 9)
+                {
+                    DGVDatos.Columns[0].Width = 80;
+                    DGVDatos.Columns[1].Width = 125;
+                    DGVDatos.Columns[2].Width = 200;
+                    DGVDatos.Columns[3].Width = 125;
+                    DGVDatos.Columns[4].Width = 125;
+                    DGVDatos.Columns[5].Width = 125;
+                    DGVDatos.Columns[6].Width = 100;
+                    DGVDatos.Columns[7].Width = 100;
+                    DGVDatos.Columns[8].Width = 100;
+                    // Puedes continuar configurando más columnas si es necesario.
+                }
+                else
+                {
+                    // Si el DataTable no tiene suficientes columnas, muestra un mensaje o realiza alguna acción adecuada.
+                    MessageBox.Show("El DataTable no contiene suficientes columnas.");
+                }
+            }
+            else
+            {
+                // Si el DataTable está vacío, muestra un mensaje o realiza alguna acción adecuada.
+                // MessageBox.Show("No se encontraron empleados.");
+            }
+        }
+
 
         private void MostrarDatos()
         {
 
             string valorparametro = Tbuscar.Text.Trim();
-            CNProducto producto = new CNProducto();
+            CNProducto CNProducto = new CNProducto();
 
-            // Aquí es donde se llama al método EmpleadoConsultarTodos de la clase CDEmpleado
-            DataTable dt = producto.ProductoObtenerTodos();
+            
+            DataTable dt = CNProducto.ProductoObtenerTodos();
 
             if (dt != null && dt.Rows.Count > 0)
             {
                 DGVDatos.DataSource = dt;
-                DGVDatos.Columns["Id_Producto"].Width = 80;
-                DGVDatos.Columns["Nombre"].Width = 125;
-                DGVDatos.Columns["Id_Categoria"].Width = 80;
-                DGVDatos.Columns["Estado"].Width = 80;
-                DGVDatos.Columns["Marca"].Width = 100;
-                DGVDatos.Columns["Fecha_De_Vencimiento"].Width = 100;
-                DGVDatos.Columns["Representacion_Grafica"].Width = 150;
-                DGVDatos.Columns["Existencia"].Width = 80;
-                DGVDatos.Columns["Precio_De_Venta"].Width = 80;
+                DGVDatos.Columns[0].Width = 80;
+                DGVDatos.Columns[1].Width = 125;
+                DGVDatos.Columns[2].Width = 200;
+                DGVDatos.Columns[3].Width = 125;
+                DGVDatos.Columns[4].Width = 125;
+                DGVDatos.Columns[5].Width = 125;
+                DGVDatos.Columns[6].Width = 100;
+                DGVDatos.Columns[7].Width = 100;
+                DGVDatos.Columns[8].Width = 90;
+
             }
             else
             {
-                //   MessageBox.Show("No se encontraron empleados.");
+                MessageBox.Show("No se encontraron empleados.");
             }
         }
 
-            private void MostrarDatos2()
-            {
 
-                string valorparametro = Tbuscar.Text.Trim();
-                CNProducto producto = new CNProducto();
 
-                // Aquí es donde se llama al método EmpleadoConsultarTodos de la clase CDEmpleado
-                DataTable dt = producto.ProductoObtener(valorparametro);
 
-                if (dt != null && dt.Rows.Count > 0)
-                {
-                DGVDatos.DataSource = dt;
-                //DGVDatos.Columns["Id_Producto"].Width = 80;
-                DGVDatos.Columns["Nombre"].Width = 125;
-                DGVDatos.Columns["Id_Categoria"].Width = 80;
-                DGVDatos.Columns["Estado"].Width = 80;
-                DGVDatos.Columns["Marca"].Width = 100;
-                DGVDatos.Columns["Fecha_De_Vencimiento"].Width = 100;
-                DGVDatos.Columns["Representacion_Grafica"].Width = 150;
-                DGVDatos.Columns["Existencia"].Width = 80;
-                DGVDatos.Columns["Precio_De_Venta"].Width = 80;
-            }
-                else
-                {
-                    //   MessageBox.Show("No se encontraron empleados.");
-                }
-            }
 
-        }
+
+
+
+
+
 
     }
+
+}

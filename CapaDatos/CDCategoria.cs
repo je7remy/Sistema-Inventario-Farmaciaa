@@ -77,6 +77,7 @@ namespace CapaDatos
                 (usando el prefijo ( d ), por ejemplo: dSuplidor, o bien , hacerlo como se declaran en los métodos Get y 
                 Set.
                         */
+                micomando.Parameters.AddWithValue("@pId_Categoria", objCDCategoria.Id_Categoria);
                 micomando.Parameters.AddWithValue("@pNombre", objCDCategoria.Nombre);
                 micomando.Parameters.AddWithValue("@pDescripcion", objCDCategoria.Descripcion);
 
@@ -158,6 +159,33 @@ namespace CapaDatos
             }
             return dt; ////Se retorna el DataTable segun lo ocurrido arriba
         } //Fin del método MostrarConFiltro
+
+
+        public DataTable CategoiaConsultarTodos()
+        {
+            DataTable dt = new DataTable();
+            SqlDataReader leerDatos;
+
+            try
+            {
+                using (SqlCommand sqlCommand = new SqlCommand())
+                {
+                    sqlCommand.Connection = new InventarioConexion().dbconexion;
+                    sqlCommand.Connection.Open();
+                    sqlCommand.CommandText = "SELECT * FROM Categoria"; // Reemplaza "categoria" con el nombre de tu tabla de empleados
+                    leerDatos = sqlCommand.ExecuteReader();
+                    dt.Load(leerDatos);
+                    sqlCommand.Connection.Close();
+                }
+            }
+            catch (Exception)
+            {
+                dt = null;
+            }
+
+            return dt;
+        }
+
 
     }
 }

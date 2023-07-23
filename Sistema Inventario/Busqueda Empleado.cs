@@ -33,7 +33,7 @@ namespace Sistema_Inventario
            
             valorparametro = "";
             vtieneparametro = 0;
-            Program.vtextBox1 = 0; //variable global que tomará el valor seleccionado
+            Program.vId_Empleado = 0; //variable global que tomará el valor seleccionado
             MostrarDatos(); //Llamo al Método que llena el DataGrid
             Tbuscar.Focus(); //El TextBox Buscar recibe el cursor
         }
@@ -68,7 +68,7 @@ namespace Sistema_Inventario
                 int.TryParse(DGVDatos.CurrentRow.Cells[0].Value.ToString(), out int valor))
             {
                 Program.modificar = true;
-                Program.vtextBox1 = valor;
+                Program.vId_Empleado = valor;
             }
             Close();
         }
@@ -177,7 +177,7 @@ namespace Sistema_Inventario
                 DGVDatos.Columns[6].Width = 100;
                 DGVDatos.Columns[7].Width = 100;
                 DGVDatos.Columns[8].Width = 90;
-                DGVDatos.Columns[9].Width = 50;
+              
             }
             else
             {
@@ -208,7 +208,7 @@ namespace Sistema_Inventario
                 DGVDatos.Columns[6].Width = 100;
                 DGVDatos.Columns[7].Width = 100;
                 DGVDatos.Columns[8].Width = 90;
-                DGVDatos.Columns[9].Width = 50;
+              
             }
             else
             {

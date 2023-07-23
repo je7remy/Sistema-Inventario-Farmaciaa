@@ -24,6 +24,7 @@ namespace Sistema_Inventario
         public Categoria()
         {
             InitializeComponent();
+            //Program.nuevo = true;
         }
 
         private void Bsalir_Click(object sender, EventArgs e)
@@ -139,7 +140,7 @@ namespace Sistema_Inventario
                     //textbox, combobox, DateTimePicker, etc.
                     //Los parámetros se pasan en el orden en que se reciben y con el tipo de dato esperado
 
-                    mensaje = CNCategoria.Insertar(Program.vtextBox1,
+                    mensaje = CNCategoria.Insertar(Program.vId_Categoria,
                                                   CNombre_Categoria.Text,
                                                   TDescripcion.Text
                                                   );
@@ -150,7 +151,7 @@ namespace Sistema_Inventario
                     //pasándole como parámetros los valores leídos en los controles del formulario. 
                     // como: textbox, combobox, DateTimePicker, etc.
                     //Los parámetros se pasan en el orden en que se reciben y con el tipo de dato esperado
-                    mensaje = CNCategoria.Actualizar(Program.vtextBox1,
+                    mensaje = CNCategoria.Actualizar(Program.vId_Categoria,
                                                   CNombre_Categoria.Text,
                                                   TDescripcion.Text
                                                   );
@@ -234,16 +235,17 @@ namespace Sistema_Inventario
 
         public void RecuperaDatos()
         {
-            string vparametro = Program.vtextBox1.ToString();
+            string vparametro = Program.vId_Categoria.ToString();
             CNCategoria CNCategoria = new CNCategoria();
             DataTable dt = new DataTable(); //creamos un nuevo DataTable
-            dt = CNCategoria.CategoriaConsultar(1, vparametro); //Llenamos el DataTable
+            dt = CNCategoria.CategoriaConsultar( vparametro); //Llenamos el DataTable
                                                               //Recorremos cada fila del DataTable asignando a los controles de edición los valores de 
                                                               //los campos correspondientes
+
             foreach (DataRow row in dt.Rows)
             {
                 TId_Categoria.Text = row["Id_Categoria"].ToString();
-                CNombre_Categoria.Text = row["Nombre_Categoria"].ToString();
+                CNombre_Categoria.Text = row["Nombre"].ToString();
                 TDescripcion.Text = row["Descripcion"].ToString();
                 
             }

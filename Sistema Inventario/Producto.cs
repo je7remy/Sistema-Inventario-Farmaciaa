@@ -87,7 +87,7 @@ namespace Sistema_Inventario
 
         public void RecuperaDatos()
         {
-            string vparametro = Program.vtextBox1.ToString();
+            string vparametro = Program.vId_Producto.ToString();
             CNProducto CNProducto = new CNProducto();
             DataTable dt = new DataTable(); //creamos un nuevo DataTable
             dt = CNProducto.ProductoObtener (vparametro); //Llenamos el DataTable
@@ -235,7 +235,7 @@ namespace Sistema_Inventario
                     string existencia = TExistencia.Text;
                     string precioventa = TPrecio_venta.Text;
 
-                    mensaje = CNProducto.Insertar(Program.vtextBox1,
+                    mensaje = CNProducto.Insertar(Program.vId_Producto,
                                                   TNombre.Text,
                                                   int.Parse(categoria), // Asumiendo que pId_Categoria es de tipo int
                                                   CEstado.Text,
@@ -258,7 +258,7 @@ namespace Sistema_Inventario
                     string existencia = TExistencia.Text;
                     string precioventa = TPrecio_venta.Text;
 
-                    mensaje = CNProducto.Actualizar(Program.vtextBox1,
+                    mensaje = CNProducto.Actualizar(Program.vId_Producto,
                                                   TNombre.Text,
                                                   int.Parse(categoria), 
                                                   CEstado.Text,

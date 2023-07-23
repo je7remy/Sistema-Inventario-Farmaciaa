@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Sistema_Inventario
 {
-    public partial class Busqueda_Categoria : Form
+    public partial class Consulta_Empleado : Form
     {
-        public Busqueda_Categoria()
+        public Consulta_Empleado()
         {
             InitializeComponent();
         }

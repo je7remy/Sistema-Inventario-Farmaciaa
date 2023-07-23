@@ -45,7 +45,7 @@ namespace CapaNegocio
         //Método utilizado para obtener un DataTable con todos los datos de la tabla 
         //correspondiente
 
-        public DataTable CategoriaConsultar(int v, string miparametro)
+        public DataTable CategoriaConsultar( string miparametro)
         {
             CDCategoria objCDCategoria = new CDCategoria();
             DataTable dt = new DataTable(); //creamos un nuevo DataTable
@@ -53,6 +53,29 @@ namespace CapaNegocio
             dt = objCDCategoria.CategoriaConsultar(miparametro);
 
             return dt; //Se retorna el DataTable con los datos adquiridos
+        }
+
+
+        public DataTable CategoriaConsultarTodos()
+          
+        {
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;
+AttachDbFilename=C:\C#\Sistema-Inventario-Farmacia\CapaDatos\DBInventario.mdf;
+Integrated Security = True"; // Reemplaza esto con la cadena de conexión a tu base de datos
+            string consulta = "SELECT * FROM Categoria"; // Reemplaza "tabla_empleados" con el nombre de tu tabla de empleados
+
+            DataTable dt = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(consulta, connection);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                dt.Load(reader);
+            }
+
+            return dt;
         }
 
     }

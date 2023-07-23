@@ -12,7 +12,7 @@ namespace Sistema_Inventario
        
         public static bool nuevo;
         public static bool modificar;
-        public static int vtextBox1;
+        public static int vId_Empleado = 0, vId_Producto=0, vId_Categoria=0;
     
 
         //public static int vtextBox2;

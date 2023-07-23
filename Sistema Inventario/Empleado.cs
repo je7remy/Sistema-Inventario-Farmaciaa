@@ -194,7 +194,7 @@ namespace Sistema_Inventario
                     //textbox, combobox, DateTimePicker, etc.
                     //Los parámetros se pasan en el orden en que se reciben y con el tipo de dato esperado
 
-                    mensaje = CNEmpleado.Insertar(Program.vtextBox1,
+                    mensaje = CNEmpleado.Insertar(Program.vId_Empleado,
                                                   textBox2.Text,
                                                   textBox3.Text,
                                                   textBox4.Text,
@@ -212,7 +212,7 @@ namespace Sistema_Inventario
                     //pasándole como parámetros los valores leídos en los controles del formulario. 
                     // como: textbox, combobox, DateTimePicker, etc.
                     //Los parámetros se pasan en el orden en que se reciben y con el tipo de dato esperado
-                    mensaje = CNEmpleado.Actualizar(Program.vtextBox1,
+                    mensaje = CNEmpleado.Actualizar(Program.vId_Empleado,
                                                     textBox2.Text,
                                                     textBox3.Text,
                                                     textBox4.Text,
@@ -304,7 +304,7 @@ namespace Sistema_Inventario
 
         public void RecuperaDatos()
         {
-            string vparametro = Program.vtextBox1.ToString();
+            string vparametro = Program.vId_Empleado.ToString();
             CNEmpleado CNEmpleado = new CNEmpleado();
             DataTable dt = CNEmpleado.EmpleadoObtener(vparametro); //Llenamos el DataTable
 

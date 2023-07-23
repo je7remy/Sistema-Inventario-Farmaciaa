@@ -1,7 +1,7 @@
 ﻿
 namespace Sistema_Inventario
 {
-    partial class Busqueda_Categoria
+    partial class Consulta_Empleado 
     {
         /// <summary>
         /// Required designer variable.
@@ -33,20 +33,20 @@ namespace Sistema_Inventario
             this.PTitulo = new System.Windows.Forms.Panel();
             this.LTitulo = new System.Windows.Forms.Label();
             this.PInformacion = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.LInformacion = new System.Windows.Forms.Label();
             this.PBotones = new System.Windows.Forms.Panel();
-            this.DataGridViewDatos = new System.Windows.Forms.DataGridView();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.LCantidad = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.BAceptar = new System.Windows.Forms.Button();
             this.BCancelar = new System.Windows.Forms.Button();
             this.BUltimo = new System.Windows.Forms.Button();
             this.BSiguiente = new System.Windows.Forms.Button();
             this.BAnterior = new System.Windows.Forms.Button();
             this.BPrimero = new System.Windows.Forms.Button();
+            this.DataGridViewDatos = new System.Windows.Forms.DataGridView();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.PTitulo.SuspendLayout();
             this.PInformacion.SuspendLayout();
             this.PBotones.SuspendLayout();
@@ -89,6 +89,29 @@ namespace Sistema_Inventario
             this.PInformacion.Size = new System.Drawing.Size(1077, 100);
             this.PInformacion.TabIndex = 1;
             this.PInformacion.Paint += new System.Windows.Forms.PaintEventHandler(this.PTitulo_Paint);
+            // 
+            // button2
+            // 
+            this.button2.AccessibleDescription = "";
+            this.button2.BackColor = System.Drawing.SystemColors.Window;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.button2.FlatAppearance.CheckedBackColor = System.Drawing.Color.SteelBlue;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.button2.Image = global::Sistema_Inventario.Properties.Resources._007_lupa;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(715, 21);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(72, 67);
+            this.button2.TabIndex = 13;
+            this.button2.Tag = "";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.button2, "Buscar dato");
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -136,18 +159,6 @@ namespace Sistema_Inventario
             this.PBotones.TabIndex = 1;
             this.PBotones.Paint += new System.Windows.Forms.PaintEventHandler(this.PBotones_Paint);
             // 
-            // DataGridViewDatos
-            // 
-            this.DataGridViewDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DataGridViewDatos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.DataGridViewDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridViewDatos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DataGridViewDatos.Location = new System.Drawing.Point(0, 200);
-            this.DataGridViewDatos.Name = "DataGridViewDatos";
-            this.DataGridViewDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGridViewDatos.Size = new System.Drawing.Size(1077, 264);
-            this.DataGridViewDatos.TabIndex = 2;
-            // 
             // LCantidad
             // 
             this.LCantidad.AutoSize = true;
@@ -157,29 +168,6 @@ namespace Sistema_Inventario
             this.LCantidad.Size = new System.Drawing.Size(422, 40);
             this.LCantidad.TabIndex = 3;
             this.LCantidad.Text = "Cantidad de empleados:   0";
-            // 
-            // button2
-            // 
-            this.button2.AccessibleDescription = "";
-            this.button2.BackColor = System.Drawing.SystemColors.Window;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
-            this.button2.FlatAppearance.CheckedBackColor = System.Drawing.Color.SteelBlue;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.button2.Image = global::Sistema_Inventario.Properties.Resources._007_lupa;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(715, 21);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(72, 67);
-            this.button2.TabIndex = 13;
-            this.button2.Tag = "";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.button2, "Buscar dato");
-            this.button2.UseVisualStyleBackColor = false;
             // 
             // BAceptar
             // 
@@ -328,7 +316,19 @@ namespace Sistema_Inventario
             this.toolTip1.SetToolTip(this.BPrimero, "Ir al primer registro");
             this.BPrimero.UseVisualStyleBackColor = false;
             // 
-            // Busqueda_Categoria
+            // DataGridViewDatos
+            // 
+            this.DataGridViewDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DataGridViewDatos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.DataGridViewDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewDatos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DataGridViewDatos.Location = new System.Drawing.Point(0, 200);
+            this.DataGridViewDatos.Name = "DataGridViewDatos";
+            this.DataGridViewDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DataGridViewDatos.Size = new System.Drawing.Size(1077, 264);
+            this.DataGridViewDatos.TabIndex = 2;
+            // 
+            // Consulta_Empleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -341,7 +341,7 @@ namespace Sistema_Inventario
             this.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5);
-            this.Name = "Busqueda_Categoria";
+            this.Name = "Consulta_Empleado";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Busqueda_Empleado";
             this.PTitulo.ResumeLayout(false);
