@@ -127,7 +127,7 @@ namespace Sistema_Inventario
                 vtieneparametro = 1; //se indica que se trabajará con parámetros
                                      //Se coloca el signo % para que el dato indicado se busque en cualquier parte del campo
                 valorparametro = "%" + Tbuscar.Text.Trim() + "%";
-                //valorparametro = tbBuscar.Text.Trim();
+                valorparametro = Tbuscar.Text.Trim();
                
             }
             else //si el textbox está vacío
@@ -163,7 +163,7 @@ namespace Sistema_Inventario
             }
             else
             {
-                //MessageBox.Show("No se encontraron empleados.");
+                //MessageBox.Show("No se encontraron categorias.");
 
     }
 }
@@ -180,7 +180,7 @@ namespace Sistema_Inventario
             {
                 DGVDatos.DataSource = dt;
                 DGVDatos.Columns[0].Width = 25;
-                DGVDatos.Columns[1].Width = 25;
+                DGVDatos.Columns[1].Width = 50;
                 DGVDatos.Columns[2].Width = 200;
             }
             else
@@ -191,11 +191,11 @@ namespace Sistema_Inventario
             // Mensajes de depuración
             if (dt == null)
             {
-                MessageBox.Show("El DataTable es nulo.");
+             //   MessageBox.Show("El DataTable es nulo.");
             }
             else
             {
-                MessageBox.Show("Se encontraron " + dt.Rows.Count + " categorías.");
+             //   MessageBox.Show("Se encontraron " + dt.Rows.Count + " categorías.");
             }
         }
 

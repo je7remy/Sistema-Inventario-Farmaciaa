@@ -238,7 +238,7 @@ namespace Sistema_Inventario
             string vparametro = Program.vId_Categoria.ToString();
             CNCategoria CNCategoria = new CNCategoria();
             DataTable dt = new DataTable(); //creamos un nuevo DataTable
-            dt = CNCategoria.CategoriaConsultar( vparametro); //Llenamos el DataTable
+            dt = CNCategoria.CategoriaConsultar(vparametro); //Llenamos el DataTable
                                                               //Recorremos cada fila del DataTable asignando a los controles de edición los valores de 
                                                               //los campos correspondientes
 

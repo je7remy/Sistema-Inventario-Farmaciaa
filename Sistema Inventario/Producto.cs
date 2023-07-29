@@ -95,7 +95,7 @@ namespace Sistema_Inventario
                                                               //los campos correspondientes
             foreach (DataRow row in dt.Rows)
             {
-               // TId_producto.Text = row["Id_Producto"].ToString();
+               TId_producto.Text = row["Id_Producto"].ToString();
                 TNombre.Text = row["Nombre"].ToString();
                 CEstado.Text = row["Estado"].ToString();
                 TMarca.Text = row["Marca"].ToString();
@@ -103,6 +103,7 @@ namespace Sistema_Inventario
                 DFecha_vencimiento.Text = row["Fecha_De_Vencimiento"].ToString();
                 TExistencia.Text = row["Existencia"].ToString();
                 TIdcategoria.Text = row["Id_Categoria"].ToString();
+                MessageBox.Show(TIdcategoria.Text);
                 TPrecio_venta.Text = row["Precio_De_Venta"].ToString();
                 
             }
@@ -320,15 +321,20 @@ namespace Sistema_Inventario
 
         private void Producto_Load(object sender, EventArgs e)
         {
-            //Program.nuevo;
+
+           // Program.nuevo = false;
             TRepresentaciongrafica.TextChanged += TRepresentaciongrafica_TextChanged;
             // Deshabilitar el TextBox
             //TRepresentaciongrafica.Enabled = false;
+
+
         }
 
         private void Producto_Activated(object sender, EventArgs e)
         {
-            Program.nuevo = true;
+            //Program.nuevo = true;
+         
+
         }
 
         private void TRepresentaciongrafica_TextChanged(object sender, EventArgs e)

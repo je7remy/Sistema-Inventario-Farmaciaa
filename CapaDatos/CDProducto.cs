@@ -102,7 +102,7 @@ namespace CapaDatos
                 sqlCon.Open();
 
                 sqlCommand.CommandType = CommandType.StoredProcedure;
-                //sqlCommand.Parameters.AddWithValue("@pId_Producto", objCDProducto.Id_Producto);
+                sqlCommand.Parameters.AddWithValue("@pId_Producto", objCDProducto.Id_Producto);
                 sqlCommand.Parameters.AddWithValue("@pNombre", objCDProducto.Nombre);
                 sqlCommand.Parameters.AddWithValue("@pId_Categoria", objCDProducto.Id_Categoria);
                 sqlCommand.Parameters.AddWithValue("@pEstado", objCDProducto.Estado);
