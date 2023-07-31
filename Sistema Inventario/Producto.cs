@@ -103,7 +103,7 @@ namespace Sistema_Inventario
                 DFecha_vencimiento.Text = row["Fecha_De_Vencimiento"].ToString();
                 TExistencia.Text = row["Existencia"].ToString();
                 TIdcategoria.Text = row["Id_Categoria"].ToString();
-                MessageBox.Show(TIdcategoria.Text);
+               // MessageBox.Show(TIdcategoria.Text);
                 TPrecio_venta.Text = row["Precio_De_Venta"].ToString();
                 
             }
@@ -169,6 +169,20 @@ namespace Sistema_Inventario
             Program.modificar = false;
             HabilitaBotones(); //Se habilitan solo aquellos botones que sean necesarios
             TNombre.Focus(); //Coloca el cursor en el TextBox indicado
+            HabilitaControles(true);
+
+
+            CIdcategoria.Items.Clear();
+            CNCategoria cncategoria = new CNCategoria();
+            DataRowCollection dt = cncategoria.CategoriaConsultar("").Rows;
+
+            CIdcategoria.DataSource = cncategoria.CategoriaConsultar("");
+
+            CIdcategoria.DisplayMember = cncategoria.CategoriaConsultar("").Columns[1].ToString();
+            CIdcategoria.ValueMember = cncategoria.CategoriaConsultar("").Columns[0].ToString();
+
+
+
         }
 
         private void Bguardar_Click(object sender, EventArgs e)
@@ -326,6 +340,12 @@ namespace Sistema_Inventario
             TRepresentaciongrafica.TextChanged += TRepresentaciongrafica_TextChanged;
             // Deshabilitar el TextBox
             //TRepresentaciongrafica.Enabled = false;
+
+
+            Program.nuevo = false;
+            Program.modificar = false;
+            HabilitaBotones(); //Habilita los objetos y botones correspondientes
+            LimpiaObjetos(); //Llama al método LimpiaObjetos
 
 
         }

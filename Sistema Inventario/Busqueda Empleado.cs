@@ -181,7 +181,7 @@ namespace Sistema_Inventario
             }
             else
             {
-                MessageBox.Show("No se encontraron empleados.");
+               // MessageBox.Show("No se encontraron empleados.");
             }
         }
 

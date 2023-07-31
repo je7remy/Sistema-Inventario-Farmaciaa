@@ -35,22 +35,22 @@ namespace Sistema_Inventario
             this.PInformacion = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Tbuscar = new System.Windows.Forms.TextBox();
             this.LInformacion = new System.Windows.Forms.Label();
             this.PBotones = new System.Windows.Forms.Panel();
             this.LCantidad = new System.Windows.Forms.Label();
-            this.BAceptar = new System.Windows.Forms.Button();
-            this.BCancelar = new System.Windows.Forms.Button();
+            this.BSalir = new System.Windows.Forms.Button();
+            this.BImprimir = new System.Windows.Forms.Button();
             this.BUltimo = new System.Windows.Forms.Button();
             this.BSiguiente = new System.Windows.Forms.Button();
             this.BAnterior = new System.Windows.Forms.Button();
             this.BPrimero = new System.Windows.Forms.Button();
-            this.DataGridViewDatos = new System.Windows.Forms.DataGridView();
+            this.DGVDatos = new System.Windows.Forms.DataGridView();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.PTitulo.SuspendLayout();
             this.PInformacion.SuspendLayout();
             this.PBotones.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewDatos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVDatos)).BeginInit();
             this.SuspendLayout();
             // 
             // PTitulo
@@ -81,14 +81,13 @@ namespace Sistema_Inventario
             this.PInformacion.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.PInformacion.Controls.Add(this.button2);
             this.PInformacion.Controls.Add(this.label1);
-            this.PInformacion.Controls.Add(this.textBox1);
+            this.PInformacion.Controls.Add(this.Tbuscar);
             this.PInformacion.Controls.Add(this.LInformacion);
             this.PInformacion.Dock = System.Windows.Forms.DockStyle.Top;
             this.PInformacion.Location = new System.Drawing.Point(0, 100);
             this.PInformacion.Name = "PInformacion";
             this.PInformacion.Size = new System.Drawing.Size(1077, 100);
             this.PInformacion.TabIndex = 1;
-            this.PInformacion.Paint += new System.Windows.Forms.PaintEventHandler(this.PTitulo_Paint);
             // 
             // button2
             // 
@@ -112,6 +111,7 @@ namespace Sistema_Inventario
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolTip1.SetToolTip(this.button2, "Buscar dato");
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label1
             // 
@@ -123,13 +123,13 @@ namespace Sistema_Inventario
             this.label1.TabIndex = 3;
             this.label1.Text = "Buscar Dato";
             // 
-            // textBox1
+            // Tbuscar
             // 
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(250, 41);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(439, 32);
-            this.textBox1.TabIndex = 1;
+            this.Tbuscar.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tbuscar.Location = new System.Drawing.Point(250, 41);
+            this.Tbuscar.Name = "Tbuscar";
+            this.Tbuscar.Size = new System.Drawing.Size(439, 32);
+            this.Tbuscar.TabIndex = 1;
             // 
             // LInformacion
             // 
@@ -146,8 +146,8 @@ namespace Sistema_Inventario
             this.PBotones.BackColor = System.Drawing.Color.SteelBlue;
             this.PBotones.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.PBotones.Controls.Add(this.LCantidad);
-            this.PBotones.Controls.Add(this.BAceptar);
-            this.PBotones.Controls.Add(this.BCancelar);
+            this.PBotones.Controls.Add(this.BSalir);
+            this.PBotones.Controls.Add(this.BImprimir);
             this.PBotones.Controls.Add(this.BUltimo);
             this.PBotones.Controls.Add(this.BSiguiente);
             this.PBotones.Controls.Add(this.BAnterior);
@@ -157,7 +157,6 @@ namespace Sistema_Inventario
             this.PBotones.Name = "PBotones";
             this.PBotones.Size = new System.Drawing.Size(1077, 152);
             this.PBotones.TabIndex = 1;
-            this.PBotones.Paint += new System.Windows.Forms.PaintEventHandler(this.PBotones_Paint);
             // 
             // LCantidad
             // 
@@ -169,55 +168,55 @@ namespace Sistema_Inventario
             this.LCantidad.TabIndex = 3;
             this.LCantidad.Text = "Cantidad de categorias:   0";
             // 
-            // BAceptar
+            // BSalir
             // 
-            this.BAceptar.AccessibleDescription = "";
-            this.BAceptar.BackColor = System.Drawing.SystemColors.Window;
-            this.BAceptar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BAceptar.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
-            this.BAceptar.FlatAppearance.CheckedBackColor = System.Drawing.Color.SteelBlue;
-            this.BAceptar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
-            this.BAceptar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
-            this.BAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BAceptar.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BAceptar.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.BAceptar.Image = global::Sistema_Inventario.Properties.Resources.salida;
-            this.BAceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BAceptar.Location = new System.Drawing.Point(895, 55);
-            this.BAceptar.Name = "BAceptar";
-            this.BAceptar.Size = new System.Drawing.Size(143, 67);
-            this.BAceptar.TabIndex = 12;
-            this.BAceptar.Tag = "";
-            this.BAceptar.Text = "&Salir";
-            this.BAceptar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.BAceptar, "Salir del formulario");
-            this.BAceptar.UseVisualStyleBackColor = false;
-            this.BAceptar.Click += new System.EventHandler(this.BAceptar_Click);
+            this.BSalir.AccessibleDescription = "";
+            this.BSalir.BackColor = System.Drawing.SystemColors.Window;
+            this.BSalir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BSalir.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.BSalir.FlatAppearance.CheckedBackColor = System.Drawing.Color.SteelBlue;
+            this.BSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+            this.BSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.BSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BSalir.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BSalir.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.BSalir.Image = global::Sistema_Inventario.Properties.Resources.salida;
+            this.BSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BSalir.Location = new System.Drawing.Point(895, 55);
+            this.BSalir.Name = "BSalir";
+            this.BSalir.Size = new System.Drawing.Size(143, 67);
+            this.BSalir.TabIndex = 12;
+            this.BSalir.Tag = "";
+            this.BSalir.Text = "&Salir";
+            this.BSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.BSalir, "Salir del formulario");
+            this.BSalir.UseVisualStyleBackColor = false;
+            this.BSalir.Click += new System.EventHandler(this.BAceptar_Click);
             // 
-            // BCancelar
+            // BImprimir
             // 
-            this.BCancelar.AccessibleDescription = "";
-            this.BCancelar.BackColor = System.Drawing.SystemColors.Window;
-            this.BCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BCancelar.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
-            this.BCancelar.FlatAppearance.CheckedBackColor = System.Drawing.Color.SteelBlue;
-            this.BCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
-            this.BCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
-            this.BCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BCancelar.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BCancelar.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.BCancelar.Image = global::Sistema_Inventario.Properties.Resources.imprimir;
-            this.BCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BCancelar.Location = new System.Drawing.Point(715, 55);
-            this.BCancelar.Name = "BCancelar";
-            this.BCancelar.Size = new System.Drawing.Size(163, 67);
-            this.BCancelar.TabIndex = 11;
-            this.BCancelar.Tag = "";
-            this.BCancelar.Text = "&Imprimir";
-            this.BCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.BCancelar, "Generar reporte correspondiente");
-            this.BCancelar.UseVisualStyleBackColor = false;
-            this.BCancelar.Click += new System.EventHandler(this.BCancelar_Click);
+            this.BImprimir.AccessibleDescription = "";
+            this.BImprimir.BackColor = System.Drawing.SystemColors.Window;
+            this.BImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BImprimir.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.BImprimir.FlatAppearance.CheckedBackColor = System.Drawing.Color.SteelBlue;
+            this.BImprimir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+            this.BImprimir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.BImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BImprimir.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BImprimir.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.BImprimir.Image = global::Sistema_Inventario.Properties.Resources.imprimir;
+            this.BImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BImprimir.Location = new System.Drawing.Point(715, 55);
+            this.BImprimir.Name = "BImprimir";
+            this.BImprimir.Size = new System.Drawing.Size(163, 67);
+            this.BImprimir.TabIndex = 11;
+            this.BImprimir.Tag = "";
+            this.BImprimir.Text = "&Imprimir";
+            this.BImprimir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.BImprimir, "Generar reporte correspondiente");
+            this.BImprimir.UseVisualStyleBackColor = false;
+            this.BImprimir.Click += new System.EventHandler(this.BCancelar_Click);
             // 
             // BUltimo
             // 
@@ -242,6 +241,7 @@ namespace Sistema_Inventario
             this.BUltimo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolTip1.SetToolTip(this.BUltimo, "Ir al ultimo registro");
             this.BUltimo.UseVisualStyleBackColor = false;
+            this.BUltimo.Click += new System.EventHandler(this.BUltimo_Click);
             // 
             // BSiguiente
             // 
@@ -266,6 +266,7 @@ namespace Sistema_Inventario
             this.BSiguiente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolTip1.SetToolTip(this.BSiguiente, "Ir al registro siguiente");
             this.BSiguiente.UseVisualStyleBackColor = false;
+            this.BSiguiente.Click += new System.EventHandler(this.BSiguiente_Click);
             // 
             // BAnterior
             // 
@@ -290,6 +291,7 @@ namespace Sistema_Inventario
             this.BAnterior.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolTip1.SetToolTip(this.BAnterior, "Ir al registro anterior");
             this.BAnterior.UseVisualStyleBackColor = false;
+            this.BAnterior.Click += new System.EventHandler(this.BAnterior_Click);
             // 
             // BPrimero
             // 
@@ -315,18 +317,20 @@ namespace Sistema_Inventario
             this.BPrimero.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolTip1.SetToolTip(this.BPrimero, "Ir al primer registro");
             this.BPrimero.UseVisualStyleBackColor = false;
+            this.BPrimero.Click += new System.EventHandler(this.BPrimero_Click);
             // 
-            // DataGridViewDatos
+            // DGVDatos
             // 
-            this.DataGridViewDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DataGridViewDatos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.DataGridViewDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridViewDatos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DataGridViewDatos.Location = new System.Drawing.Point(0, 200);
-            this.DataGridViewDatos.Name = "DataGridViewDatos";
-            this.DataGridViewDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGridViewDatos.Size = new System.Drawing.Size(1077, 264);
-            this.DataGridViewDatos.TabIndex = 2;
+            this.DGVDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DGVDatos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.DGVDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVDatos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DGVDatos.Location = new System.Drawing.Point(0, 200);
+            this.DGVDatos.Name = "DGVDatos";
+            this.DGVDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGVDatos.Size = new System.Drawing.Size(1077, 264);
+            this.DGVDatos.TabIndex = 2;
+            this.DGVDatos.CurrentCellChanged += new System.EventHandler(this.DGVDatos_CurrentCellChanged);
             // 
             // Consulta_Categoria
             // 
@@ -334,7 +338,7 @@ namespace Sistema_Inventario
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1077, 616);
-            this.Controls.Add(this.DataGridViewDatos);
+            this.Controls.Add(this.DGVDatos);
             this.Controls.Add(this.PInformacion);
             this.Controls.Add(this.PBotones);
             this.Controls.Add(this.PTitulo);
@@ -344,13 +348,15 @@ namespace Sistema_Inventario
             this.Name = "Consulta_Categoria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Busqueda_Empleado";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Consulta_Categoria_FormClosing);
+            this.Load += new System.EventHandler(this.Consulta_Categoria_Load);
             this.PTitulo.ResumeLayout(false);
             this.PTitulo.PerformLayout();
             this.PInformacion.ResumeLayout(false);
             this.PInformacion.PerformLayout();
             this.PBotones.ResumeLayout(false);
             this.PBotones.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewDatos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVDatos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -361,12 +367,12 @@ namespace Sistema_Inventario
         private System.Windows.Forms.Panel PInformacion;
         private System.Windows.Forms.Panel PBotones;
         private System.Windows.Forms.Label LTitulo;
-        private System.Windows.Forms.DataGridView DataGridViewDatos;
+        private System.Windows.Forms.DataGridView DGVDatos;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Tbuscar;
         private System.Windows.Forms.Label LInformacion;
-        private System.Windows.Forms.Button BAceptar;
-        private System.Windows.Forms.Button BCancelar;
+        private System.Windows.Forms.Button BSalir;
+        private System.Windows.Forms.Button BImprimir;
         private System.Windows.Forms.Button BUltimo;
         private System.Windows.Forms.Button BSiguiente;
         private System.Windows.Forms.Button BAnterior;

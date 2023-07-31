@@ -20,7 +20,7 @@ namespace Sistema_Inventario
         public Busqueda_Categoria()
         {
             InitializeComponent();
-         //   Program.nuevo = false;
+            //   Program.nuevo = false;
         }
 
         private void Busqueda_Categoria_Load(object sender, EventArgs e)
@@ -45,7 +45,7 @@ namespace Sistema_Inventario
 
         private void BCancelar_Click(object sender, EventArgs e)
         {
-           //Busqueda_Empleado.ActiveForm.Close();
+            //Busqueda_Empleado.ActiveForm.Close();
             Program.modificar = false; //variable global a toda la solución 
             Close(); //Se cierra el formulario
         }
@@ -128,46 +128,18 @@ namespace Sistema_Inventario
                                      //Se coloca el signo % para que el dato indicado se busque en cualquier parte del campo
                 valorparametro = "%" + Tbuscar.Text.Trim() + "%";
                 valorparametro = Tbuscar.Text.Trim();
-               
             }
             else //si el textbox está vacío
             {
                 vtieneparametro = 0; //se indica que no se trabajará con parámetros
                 valorparametro = ""; //Se vuelve vacío la variable del parámetro.
+                MostrarDatos2();
             }
 
             MostrarDatos(); //Se llama al método MostrarDatos
 
 
         }
-
-
-
-
-    private void MostrarDatos2()
-        {
-            string valorparametro = Tbuscar.Text.Trim();
-            CNCategoria categoria = new CNCategoria();
-
-            //Aquí es donde se llama al método EmpleadoConsultarTodos de la clase CDEmpleado
-            DataTable dt = categoria.CategoriaConsultarTodos();
-
-            if (dt != null && dt.Rows.Count > 0)
-            {
-                DGVDatos.DataSource = dt;
-                DGVDatos.Columns[0].Width = 25;
-                DGVDatos.Columns[1].Width = 25;
-                DGVDatos.Columns[2].Width = 200;
-
-
-            }
-            else
-            {
-                //MessageBox.Show("No se encontraron categorias.");
-
-    }
-}
-
 
 
         private void MostrarDatos()
@@ -191,13 +163,41 @@ namespace Sistema_Inventario
             // Mensajes de depuración
             if (dt == null)
             {
-             //   MessageBox.Show("El DataTable es nulo.");
+                //   MessageBox.Show("El DataTable es nulo.");
             }
             else
             {
-             //   MessageBox.Show("Se encontraron " + dt.Rows.Count + " categorías.");
+                //   MessageBox.Show("Se encontraron " + dt.Rows.Count + " categorías.");
             }
         }
+
+
+
+        private void MostrarDatos2()
+        {
+            string valorparametro = Tbuscar.Text.Trim();
+            CNCategoria categoria = new CNCategoria();
+
+            //Aquí es donde se llama al método EmpleadoConsultarTodos de la clase CDEmpleado
+            DataTable dt = categoria.CategoriaConsultarTodos();
+
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                DGVDatos.DataSource = dt;
+                DGVDatos.Columns[0].Width = 25;
+                DGVDatos.Columns[1].Width = 25;
+                DGVDatos.Columns[2].Width = 200;
+
+
+            }
+            else
+            {
+                //MessageBox.Show("No se encontraron categorias.");
+
+            }
+        }
+
+
 
 
 

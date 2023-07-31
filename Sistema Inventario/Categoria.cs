@@ -83,7 +83,10 @@ namespace Sistema_Inventario
 
         private void Categoria_Load(object sender, EventArgs e)
         {
-
+            Program.nuevo = false;
+            Program.modificar = false;
+            HabilitaBotones(); //Habilita los objetos y botones correspondientes
+            LimpiaObjetos(); //Llama al método LimpiaObjetos
         }
 
         private void Categoria_FormClosing(object sender, FormClosingEventArgs e)

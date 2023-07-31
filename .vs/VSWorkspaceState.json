@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\CapaDatos"
+    "\\CapaDatos",
+    "\\Sistema Inventario"
   ],
-  "SelectedNode": "\\Sistema Inventario.sln",
+  "SelectedNode": "\\Sistema Inventario\\Busqueda Categoria.resx",
   "PreviewInSolutionExplorer": false
 }

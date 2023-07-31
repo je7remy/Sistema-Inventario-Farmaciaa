@@ -27,8 +27,8 @@ namespace Sistema_Inventario
 
         private void empleadoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Busqueda_Categoria busqueda_Categoria = new Busqueda_Categoria();
-            busqueda_Categoria.ShowDialog();
+            Consulta_Empleado consulta_empleado = new Consulta_Empleado();
+            consulta_empleado.ShowDialog();
         }
 
         private void movimientoInventarioToolStripMenuItem_Click(object sender, EventArgs e)

@@ -298,9 +298,13 @@ namespace Sistema_Inventario
 
             } //Fin del método Click del botón Buscar
 
-       
-
-
+        private void Empleado_Load(object sender, EventArgs e)
+        {
+            Program.nuevo = false;
+            Program.modificar = false;
+            HabilitaBotones(); //Habilita los objetos y botones correspondientes
+            LimpiaObjetos(); //Llama al método LimpiaObjetos
+        }
 
         public void RecuperaDatos()
         {

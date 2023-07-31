@@ -60,6 +60,7 @@ namespace Sistema_Inventario
             this.TPrecio_venta = new System.Windows.Forms.TextBox();
             this.TRepresentaciongrafica = new System.Windows.Forms.TextBox();
             this.TIdcategoria = new System.Windows.Forms.TextBox();
+            this.CIdcategoria = new System.Windows.Forms.ComboBox();
             this.Ptitulo.SuspendLayout();
             this.Pbotones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -439,12 +440,22 @@ namespace Sistema_Inventario
             this.TIdcategoria.Size = new System.Drawing.Size(251, 39);
             this.TIdcategoria.TabIndex = 32;
             // 
+            // CIdcategoria
+            // 
+            this.CIdcategoria.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CIdcategoria.FormattingEnabled = true;
+            this.CIdcategoria.Location = new System.Drawing.Point(776, 173);
+            this.CIdcategoria.Name = "CIdcategoria";
+            this.CIdcategoria.Size = new System.Drawing.Size(251, 39);
+            this.CIdcategoria.TabIndex = 34;
+            // 
             // Producto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1081, 823);
+            this.Controls.Add(this.CIdcategoria);
             this.Controls.Add(this.TIdcategoria);
             this.Controls.Add(this.TRepresentaciongrafica);
             this.Controls.Add(this.TPrecio_venta);
@@ -521,5 +532,6 @@ namespace Sistema_Inventario
         private System.Windows.Forms.TextBox TPrecio_venta;
         private System.Windows.Forms.TextBox TRepresentaciongrafica;
         private System.Windows.Forms.TextBox TIdcategoria;
+        private System.Windows.Forms.ComboBox CIdcategoria;
     }
 }
