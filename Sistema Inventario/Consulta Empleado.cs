@@ -110,7 +110,8 @@ namespace Sistema_Inventario
 
         private void BCancelar_Click(object sender, EventArgs e)
         {
-           //Busqueda_Empleado.ActiveForm.Close();
+            FReporteEmpleado reporte = new FReporteEmpleado();
+            reporte.ShowDialog();
         }
 
         private void BAceptar_Click(object sender, EventArgs e)

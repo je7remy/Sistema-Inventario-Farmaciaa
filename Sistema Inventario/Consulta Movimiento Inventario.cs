@@ -29,7 +29,8 @@ namespace Sistema_Inventario
 
         private void BCancelar_Click(object sender, EventArgs e)
         {
-           Busqueda_Empleado.ActiveForm.Close();
+            FReporteMovimientoInventario reporte = new FReporteMovimientoInventario();
+            reporte.ShowDialog();
         }
 
         private void BAceptar_Click(object sender, EventArgs e)

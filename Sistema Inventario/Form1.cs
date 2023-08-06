@@ -129,6 +129,40 @@ namespace Sistema_Inventario
             Guardar_copia_de_seguridad guardar_copia_de_seguridad = new Guardar_copia_de_seguridad();
             guardar_copia_de_seguridad.ShowDialog();
         }
+
+        private void calculadoraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("Calc.Exe");
+        }
+
+        private void Fmenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Esto le hara salir del Menu Principal!\n¿Seguro que desea hacerlo?", "Mensaje de Botica Sila",
+                MessageBoxButtons.YesNo
+              , MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+
+                e.Cancel = false;
+            else
+                e.Cancel = true;
+        }
+
+        private void datosGeneralesDelEmpleadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FReporteEmpleado reporte = new FReporteEmpleado();
+            reporte.ShowDialog();
+        }
+
+        private void datosGeneralesDeLosProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FReporteProducto reporte = new FReporteProducto();
+            reporte.ShowDialog();
+        }
+
+        private void datosGeneralesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FReporteMovimientoInventario reporte = new FReporteMovimientoInventario();
+            reporte.ShowDialog();
+        }
     }
     }
 

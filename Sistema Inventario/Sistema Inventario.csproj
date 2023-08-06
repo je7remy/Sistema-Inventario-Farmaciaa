@@ -48,8 +48,27 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -61,6 +80,39 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBInventarioDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBInventarioDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DBInventarioDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBInventarioDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DBInventarioDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBInventarioDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FReporte.Designer.cs">
+      <DependentUpon>FReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FReporteMovimientoInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FReporteMovimientoInventario.Designer.cs">
+      <DependentUpon>FReporteMovimientoInventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FReporteProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FReporteProducto.Designer.cs">
+      <DependentUpon>FReporteProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Guardar copia de seguridad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +217,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="Empleado.rdlc" />
+    <EmbeddedResource Include="FReporte.resx">
+      <DependentUpon>FReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FReporteMovimientoInventario.resx">
+      <DependentUpon>FReporteMovimientoInventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FReporteProducto.resx">
+      <DependentUpon>FReporteProducto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Guardar copia de seguridad.resx">
       <DependentUpon>Guardar copia de seguridad.cs</DependentUpon>
     </EmbeddedResource>
@@ -207,6 +270,8 @@
     <EmbeddedResource Include="Movimiento Inventario.resx">
       <DependentUpon>Movimiento Inventario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Movimiento_Inventario.rdlc" />
+    <EmbeddedResource Include="Producto.rdlc" />
     <EmbeddedResource Include="Producto.resx">
       <DependentUpon>Producto.cs</DependentUpon>
     </EmbeddedResource>
@@ -226,6 +291,40 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="DBInventarioDataSet.xsc">
+      <DependentUpon>DBInventarioDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DBInventarioDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBInventarioDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBInventarioDataSet.xss">
+      <DependentUpon>DBInventarioDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DBInventarioDataSet1.xsc">
+      <DependentUpon>DBInventarioDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DBInventarioDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBInventarioDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBInventarioDataSet1.xss">
+      <DependentUpon>DBInventarioDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DBInventarioDataSet2.xsc">
+      <DependentUpon>DBInventarioDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="DBInventarioDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBInventarioDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBInventarioDataSet2.xss">
+      <DependentUpon>DBInventarioDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -439,6 +538,21 @@
       <Project>{2ff0cc40-e1e2-4dab-a001-fae24b07cdd9}</Project>
       <Name>CapaNegocio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

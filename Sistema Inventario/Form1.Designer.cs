@@ -193,6 +193,7 @@ namespace Sistema_Inventario
             this.datosGeneralesDelEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
             this.datosGeneralesDelEmpleadoToolStripMenuItem.Text = "Datos generales del empleado";
             this.datosGeneralesDelEmpleadoToolStripMenuItem.ToolTipText = "Visualizar e imprimir informaciones generales de los empleados";
+            this.datosGeneralesDelEmpleadoToolStripMenuItem.Click += new System.EventHandler(this.datosGeneralesDelEmpleadoToolStripMenuItem_Click);
             // 
             // porEstadoToolStripMenuItem
             // 
@@ -233,6 +234,7 @@ namespace Sistema_Inventario
             this.datosGeneralesDeLosProductosToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
             this.datosGeneralesDeLosProductosToolStripMenuItem.Text = "Datos generales de los productos";
             this.datosGeneralesDeLosProductosToolStripMenuItem.ToolTipText = "Visualizar e imprimir informaciones generales de los productos";
+            this.datosGeneralesDeLosProductosToolStripMenuItem.Click += new System.EventHandler(this.datosGeneralesDeLosProductosToolStripMenuItem_Click);
             // 
             // porCategoriaToolStripMenuItem
             // 
@@ -300,6 +302,7 @@ namespace Sistema_Inventario
             this.datosGeneralesToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.datosGeneralesToolStripMenuItem.Text = "Datos generales";
             this.datosGeneralesToolStripMenuItem.ToolTipText = "Visualizar e imprimir datos generales de movimiento inventario";
+            this.datosGeneralesToolStripMenuItem.Click += new System.EventHandler(this.datosGeneralesToolStripMenuItem_Click);
             // 
             // movimientoPorFechaToolStripMenuItem
             // 
@@ -361,6 +364,7 @@ namespace Sistema_Inventario
             this.calculadoraToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.calculadoraToolStripMenuItem.Text = "&Calculadora";
             this.calculadoraToolStripMenuItem.ToolTipText = "Abrir calculadora de windows";
+            this.calculadoraToolStripMenuItem.Click += new System.EventHandler(this.calculadoraToolStripMenuItem_Click);
             // 
             // reproductorMultimediaToolStripMenuItem
             // 
@@ -402,7 +406,7 @@ namespace Sistema_Inventario
             // 
             this.backupToolStripMenuItem.Image = global::Sistema_Inventario.Properties.Resources.copia_de_seguridad_del_sistema;
             this.backupToolStripMenuItem.Name = "backupToolStripMenuItem";
-            this.backupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.backupToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.backupToolStripMenuItem.Text = "&Backup";
             this.backupToolStripMenuItem.ToolTipText = "Copia de seguridad del sistema";
             this.backupToolStripMenuItem.Click += new System.EventHandler(this.backupToolStripMenuItem_Click);
@@ -411,7 +415,7 @@ namespace Sistema_Inventario
             // 
             this.restaurarToolStripMenuItem.Image = global::Sistema_Inventario.Properties.Resources.restaurar;
             this.restaurarToolStripMenuItem.Name = "restaurarToolStripMenuItem";
-            this.restaurarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.restaurarToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.restaurarToolStripMenuItem.Text = "&Restaurar";
             this.restaurarToolStripMenuItem.ToolTipText = "Restaurar copia de seguridad";
             this.restaurarToolStripMenuItem.Click += new System.EventHandler(this.restaurarToolStripMenuItem_Click);
@@ -419,13 +423,13 @@ namespace Sistema_Inventario
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(173, 6);
             // 
             // cuentasDeUsuarioToolStripMenuItem
             // 
             this.cuentasDeUsuarioToolStripMenuItem.Image = global::Sistema_Inventario.Properties.Resources.cuenta_de_usuario;
             this.cuentasDeUsuarioToolStripMenuItem.Name = "cuentasDeUsuarioToolStripMenuItem";
-            this.cuentasDeUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cuentasDeUsuarioToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.cuentasDeUsuarioToolStripMenuItem.Text = "Cuentas de &Usuario";
             this.cuentasDeUsuarioToolStripMenuItem.ToolTipText = "Gestion de las cuentas de usuarios";
             // 
@@ -433,7 +437,7 @@ namespace Sistema_Inventario
             // 
             this.registrarEmpresaToolStripMenuItem.Image = global::Sistema_Inventario.Properties.Resources.registrar_empresa;
             this.registrarEmpresaToolStripMenuItem.Name = "registrarEmpresaToolStripMenuItem";
-            this.registrarEmpresaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.registrarEmpresaToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.registrarEmpresaToolStripMenuItem.Text = "Registrar &Empresa";
             this.registrarEmpresaToolStripMenuItem.ToolTipText = "Registrar los datos de la empresa";
             this.registrarEmpresaToolStripMenuItem.Click += new System.EventHandler(this.registrarEmpresaToolStripMenuItem_Click);
@@ -561,6 +565,7 @@ namespace Sistema_Inventario
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema Inventario - Menu Principal";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Fmenu_FormClosing);
             this.Load += new System.EventHandler(this.Fmenu_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

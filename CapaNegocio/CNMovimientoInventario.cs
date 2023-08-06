@@ -10,7 +10,7 @@ using CapaDatos;
 
 namespace CapaNegocio
 {
-    class CNMovimientoInventario
+  public class CNMovimientoInventario
     {
         public static string Insertar(int pId_Inventario, int pId_Producto, int pCantidad, string pTipo_De_Movimiento, int pId_Empleado, DateTime pFecha)
         {
@@ -54,7 +54,7 @@ namespace CapaNegocio
             CDMovimientoInventario objCDMovimientoInventario = new CDMovimientoInventario();
             DataTable dt = new DataTable(); //creamos un nuevo DataTable
                                             //El DataTable se llena con todos los datos devueltos
-            dt = objCDMovimientoInventario.MovimientoInventarioConsultar(miparametro);
+          dt = objCDMovimientoInventario.MovimientoInventarioConsultar(miparametro);
             return dt; //Se retorna el DataTable con los datos adquiridos
         }
 

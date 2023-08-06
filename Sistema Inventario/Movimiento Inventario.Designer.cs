@@ -52,6 +52,7 @@ namespace Sistema_Inventario
             this.label5 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TRepresentaciongrafica = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -167,6 +168,7 @@ namespace Sistema_Inventario
             this.Bguardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolTipempleado.SetToolTip(this.Bguardar, "Guardar cambios de empleado");
             this.Bguardar.UseVisualStyleBackColor = false;
+            this.Bguardar.Click += new System.EventHandler(this.Bguardar_Click);
             // 
             // label2
             // 
@@ -207,7 +209,6 @@ namespace Sistema_Inventario
             this.label7.Size = new System.Drawing.Size(119, 31);
             this.label7.TabIndex = 7;
             this.label7.Text = "Cantidad";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label9
             // 
@@ -227,7 +228,6 @@ namespace Sistema_Inventario
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(134, 39);
             this.textBox1.TabIndex = 11;
-            this.textBox1.Text = "01";
             // 
             // comboBox2
             // 
@@ -265,6 +265,7 @@ namespace Sistema_Inventario
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolTipempleado.SetToolTip(this.button1, "Buscar empleados");
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // comboBox3
             // 
@@ -329,9 +330,13 @@ namespace Sistema_Inventario
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(251, 39);
             this.textBox4.TabIndex = 29;
+            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            this.textBox4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox4_KeyPress);
+            this.textBox4.Leave += new System.EventHandler(this.textBox4_Leave);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.TRepresentaciongrafica);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.textBox2);
@@ -345,6 +350,16 @@ namespace Sistema_Inventario
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de los productos";
+            // 
+            // TRepresentaciongrafica
+            // 
+            this.TRepresentaciongrafica.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TRepresentaciongrafica.Location = new System.Drawing.Point(101, 368);
+            this.TRepresentaciongrafica.Name = "TRepresentaciongrafica";
+            this.TRepresentaciongrafica.Size = new System.Drawing.Size(251, 39);
+            this.TRepresentaciongrafica.TabIndex = 37;
+            this.TRepresentaciongrafica.Visible = false;
+            this.TRepresentaciongrafica.TextChanged += new System.EventHandler(this.TRepresentaciongrafica_TextChanged);
             // 
             // pictureBox1
             // 
@@ -414,7 +429,7 @@ namespace Sistema_Inventario
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Empleado";
-            this.Load += new System.EventHandler(this.Empleado_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Movimiento_Inventario_FormClosing);
             this.Ptitulo.ResumeLayout(false);
             this.Ptitulo.PerformLayout();
             this.Pbotones.ResumeLayout(false);
@@ -453,5 +468,6 @@ namespace Sistema_Inventario
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox TRepresentaciongrafica;
     }
 }

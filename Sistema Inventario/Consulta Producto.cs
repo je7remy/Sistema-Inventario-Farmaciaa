@@ -72,7 +72,8 @@ namespace Sistema_Inventario
 
         private void BCancelar_Click(object sender, EventArgs e)
         {
-           Busqueda_Empleado.ActiveForm.Close();
+            FReporteProducto reporte = new FReporteProducto();
+            reporte.ShowDialog();
         }
 
         private void BPrimero_Click(object sender, EventArgs e)

@@ -16,6 +16,9 @@ namespace CapaDatos
         private string dNombre, dApellido, dDireccion, dTelefono, dCedula, dEstado, dSexo, dCargo;
         private DateTime dFecha_Nac;
 
+
+
+
         public CDEmpleado(int pId_Empleado, string pNombre, string pApellido, string pDireccion, string pTelefono, DateTime pFecha_Nac, string pCedula, string pEstado, string pSexo, string pCargo)
         {
             dId_Empleado = pId_Empleado;
