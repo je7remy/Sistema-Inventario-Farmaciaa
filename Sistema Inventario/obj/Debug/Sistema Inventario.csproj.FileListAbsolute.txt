@@ -213,3 +213,5 @@ C:\C#\Sistema-Inventario-Farmacia\Sistema Inventario\bin\Debug\zh-CHT\Microsoft.
 C:\C#\Sistema-Inventario-Farmacia\Sistema Inventario\obj\Debug\Sistema_Inventario.FReporteEmpleado.resources
 C:\C#\Sistema-Inventario-Farmacia\Sistema Inventario\obj\Debug\Sistema_Inventario.FReporteProducto.resources
 C:\C#\Sistema-Inventario-Farmacia\Sistema Inventario\obj\Debug\Sistema_Inventario.FReporteMovimientoInventario.resources
+C:\C#\Sistema-Inventario-Farmacia\Sistema Inventario\bin\Debug\DBInventario.mdf
+C:\C#\Sistema-Inventario-Farmacia\Sistema Inventario\bin\Debug\DBInventario_log.ldf
