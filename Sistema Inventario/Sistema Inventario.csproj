@@ -95,17 +95,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBInventarioDataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DBInventarioDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBInventarioDataSet3.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FReporte.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FReporte.Designer.cs">
       <DependentUpon>FReporte.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FReporteMovimientoInventario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FReporteMovimientoInventario.Designer.cs">
-      <DependentUpon>FReporteMovimientoInventario.cs</DependentUpon>
     </Compile>
     <Compile Include="FReporteProducto.cs">
       <SubType>Form</SubType>
@@ -222,9 +221,6 @@
     <EmbeddedResource Include="FReporte.resx">
       <DependentUpon>FReporte.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FReporteMovimientoInventario.resx">
-      <DependentUpon>FReporteMovimientoInventario.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FReporteProducto.resx">
       <DependentUpon>FReporteProducto.cs</DependentUpon>
     </EmbeddedResource>
@@ -270,7 +266,6 @@
     <EmbeddedResource Include="Movimiento Inventario.resx">
       <DependentUpon>Movimiento Inventario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Movimiento_Inventario.rdlc" />
     <EmbeddedResource Include="Producto.rdlc" />
     <EmbeddedResource Include="Producto.resx">
       <DependentUpon>Producto.cs</DependentUpon>
@@ -323,6 +318,17 @@
     </None>
     <None Include="DBInventarioDataSet2.xss">
       <DependentUpon>DBInventarioDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="DBInventarioDataSet3.xsc">
+      <DependentUpon>DBInventarioDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="DBInventarioDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBInventarioDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBInventarioDataSet3.xss">
+      <DependentUpon>DBInventarioDataSet3.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -160,8 +160,8 @@ namespace Sistema_Inventario
 
         private void datosGeneralesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FReporteMovimientoInventario reporte = new FReporteMovimientoInventario();
-            reporte.ShowDialog();
+            //FReporteMovimientoInventario reporte = new FReporteMovimientoInventario();
+            //reporte.ShowDialog();
         }
     }
     }

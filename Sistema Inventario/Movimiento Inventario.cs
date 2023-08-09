@@ -32,6 +32,59 @@ namespace Sistema_Inventario
             InitializeComponent();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Busqueda_Producto busqueda_producto = new Busqueda_Producto();
+            busqueda_producto.ShowDialog();
+
+          
+                RecuperaDatos(); //Llamo al método para recuperar el Depto seleccionado
+               
+           
+                //Limpiar();
+                //BBuscar.Focus();
+            
+        }
+
+        private void Bcancelar_Click_1(object sender, EventArgs e)
+        {
+            Limpiar();
+            BBuscar.Focus();
+        }
+
+        private void Movimiento_Inventario_Load(object sender, EventArgs e)
+        {
+
+            CNCategoria cncategoria = new CNCategoria();
+            DataTable dtCategorias = cncategoria.CategoriaConsultarTodos();
+
+            if (dtCategorias.Rows.Count > 0)
+            {
+                CCategoria.DataSource = dtCategorias;
+                CCategoria.DisplayMember = "Nombre"; // Cambia esto al nombre de la columna de nombre de categoría
+                CCategoria.ValueMember = "Id_Categoria"; // Cambia esto al nombre de la columna de ID de categoría
+            }
+            else
+            {
+                MessageBox.Show("No se encontraron categorías en la base de datos.");
+            }
+        }
+
+        private string ObtenerNombreCategoria(string idCategoria)
+        {
+            CNCategoria cncategoria = new CNCategoria();
+            DataTable dt = cncategoria.CategoriaConsultar(idCategoria);
+
+            if (dt.Rows.Count > 0)
+            {
+                return dt.Rows[0]["Nombre"].ToString();
+            }
+
+            return string.Empty;
+        }
+
+
+
         private void Bsalir_Click(object sender, EventArgs e)
         {
             //Close();
@@ -39,90 +92,17 @@ namespace Sistema_Inventario
             
         }
 
-       
-
-        private void Bbuscar_Click(object sender, EventArgs e)
-        {
-            Busqueda_Empleado busqueda_Empleado = new Busqueda_Empleado();
-            busqueda_Empleado.ShowDialog();
-        }
-
       
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog abririmagen = new OpenFileDialog();
-            if (abririmagen.ShowDialog() == DialogResult.OK)
-            {
-                pictureBox1.ImageLocation = abririmagen.FileName;
-                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            }
-        }
+       
 
-        private void label10_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog abririmagen = new OpenFileDialog();
-            if (abririmagen.ShowDialog() == DialogResult.OK)
-            {
-                pictureBox1.ImageLocation = abririmagen.FileName;
-                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            }
-        }
+   
+      
 
-        private void textBox4_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //sólo se permiten números 
-            if (Char.IsDigit(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            if (Char.IsPunctuation(e.KeyChar)) //permitir punto
-            {
-                e.Handled = false;
-            }
-            else
-            if (Char.IsControl(e.KeyChar)) //permitir teclas de control
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                //el resto de teclas pulsadas se desactivan 
-                e.Handled = true;
-            }
-        }
+   
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            vId_Inventario = 0;
-            Busqueda_Producto busqueda_producto = new Busqueda_Producto();
-            busqueda_producto.ShowDialog();
-            if (Program.modificar)
-            {
-                RecuperaDatos(); //Llamo al método para recuperar el Depto seleccionado
-              
-            }
-            else
-
-            {
-                MessageBox.Show("no se pudo");
-               
-            }
-
-        }
-
-        private void Bcancelar_Click(object sender, EventArgs e)
-        {
-            Limpiar();
-            button1.Focus();
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        
+      
 
         private void TRepresentaciongrafica_TextChanged(object sender, EventArgs e)
         {
@@ -139,125 +119,9 @@ namespace Sistema_Inventario
             }
         }
 
-        private void Bguardar_Click(object sender, EventArgs e)
-        {
-            //Validamos los datos requeridos entes de Insertar o Actualizar
-            //if (TId_producto.Text == String.Empty) //Si el textbox está vacío mostrar un error y ubicar 
-            //{ // el cursor en dicho textbox 
-            //    MessageBox.Show("Debe rellenar todos los campos!");
-            //    TId_producto.Focus();
-            //}
-            //else
-            if (comboBox3.Text == String.Empty)
-            {
-                MessageBox.Show("Debe rellenar todos los campos!");
-                comboBox3.Focus();
-            }
-            else
-            if (textBox4.Text == String.Empty)
-            {
-                MessageBox.Show("Debe rellenar todos los campos!");
-                textBox4.Focus();
-            }
-            else
-            if (comboBox4.Text == String.Empty)
-            {
-                MessageBox.Show("Debe rellenar todos los campos!");
-                comboBox4.Focus();
-            }
-            else
-            //if (dateTimePicker1.Text == String.Empty)
-            //{
-            //    MessageBox.Show("Debe rellenar todos los campos!");
-            //    dateTimePicker1.Focus();
-            //}
-            //else
-            //if (textBox2.Text == String.Empty)
-            //{
-            //    MessageBox.Show("Debe rellenar todos los campos!");
-            //    textBox2.Focus();
-            //}
-            //else
-            //if (TRepresentaciongrafica.Text == String.Empty)
-            //{
-            //    MessageBox.Show("Debe rellenar todos los campos!");
 
-            //}
-            //else
-            //if (TRepresentaciongrafica.Text == String.Empty)
-            //{
-            //    MessageBox.Show("Debe rellenar todos los campos!");
-            //    TRepresentaciongrafica.Focus();
-            //}
 
-            //else
-            {
-                //Si todo es correcto procede a Insertar o actualizar según corresponda, usaremos las 
-                //variables globales a toda la solución contenidas en Program.CS
-                if (Program.nuevo) //Si la variable nuevo llega con valor true se van a Insertar nuevos datos
-                {
-
-                    //string existencia = TExistencias.Text;
-                    //string existencia = TExistencia.ToString();
-
-                    string cantidad = textBox4.Text; // Si CIdcategoria es un ComboBox
-                    string empleado = comboBox3.Text; // Si CIdcategoria es un ComboBox
-                    //string existencia = TExistencia.Text;
-                    //string precioventa = TPrecio_venta.Text;
-
-                    mensaje = CNMovimientoInventario.Insertar(Program.vMovimiento_Inventario,Program.vId_Producto,
-                                                  int.Parse(cantidad),
-                                                  comboBox4.Text,
-                                                 int.Parse(empleado),
-                                                  dateTimePicker1.Value);
-                    //DFecha_vencimiento.Value,
-                    //TRepresentaciongrafica.Text,
-                    //int.Parse(existencia), // Asumiendo que pExistencia es de tipo int
-                    //decimal.Parse(precioventa)); // Asumiendo que pPrecio_De_Venta es de tipo int
-
-                }
-               
-                //Se muestra el mensaje devuelto por la capa de negocio respecto al resultado de la operación 
-                MessageBox.Show(mensaje, "Mensage de Botica Sila", MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
-
-                //Se prepara todo para la próxima operación
-                Program.nuevo = false;
-                Program.modificar = false;
-              
-            } //Fin del else para validar los datos
-              //            j) Hacer doble clic en un lugar vacío del formulario para generar el evento Load del mismo.
-              //Este se ejecuta cuando se habilita el formulario. Escribir dentro el siguiente código:
-            Program.nuevo = false; //Valores de las variables globales nuevo y modificar
-            Program.modificar = false;
-
-         
-
-        
-    }
-
-        private void textBox4_Leave(object sender, EventArgs e)
-        {
-            if (textBox4.Text != string.Empty)
-            {
-                Cantidad = Convert.ToInt32(textBox4.Text);
-                if (Cantidad < Cantidad)
-                {
-                    MessageBox.Show("No hay suficiente existencia de la mercancia indicada!"); 
-                   
-                    button1.Focus();
-                }
-                else
-                {
-                    button1.Focus();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Debe indicar la cantidad vendida!");
-                button1.Focus();
-            }
-        }
+       
 
         private void Movimiento_Inventario_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -273,41 +137,38 @@ namespace Sistema_Inventario
         private void Limpiar()
         {
 
-            textBox1.Text = string.Empty;
-            comboBox3.Text = string.Empty;
-            textBox4.Text = string.Empty;
-            comboBox4.Text = string.Empty;
-            dateTimePicker1.Value = System.DateTime.Now.Date;
-            textBox2.Text = string.Empty;
+            textBox1.Clear();
+            CEmpleado.Text = null;
+            TCantidad.Clear();
+            CTipodemovimiento.Text = null;
+            DFecha.Value = System.DateTime.Now.Date;
+            TNombre.Clear();
+            CCategoria.Text = null;
             pictureBox1.Image = null;
+            TRepresentaciongrafica.Clear();
 
         }
 
-
         public void RecuperaDatos()
         {
-            string vparametro = Program.vMovimiento_Inventario.ToString();
-            CNMovimientoInventario cnmovimientoinventario = new CNMovimientoInventario();
-            DataTable dt = new DataTable(); //creamos un nuevo DataTable
-            dt = cnmovimientoinventario.MovimientoInventarioConsultar(vparametro); //Llenamos el DataTable
-                                                         //Recorremos cada fila del DataTable asignando a los controles de edición los valores de 
-                                                         //los campos correspondientes
+            string vparametro = Program.vId_Producto.ToString();
+            CNProducto CNProducto = new CNProducto();
+            DataTable dt = new DataTable();
+            dt = CNProducto.ProductoObtener(vparametro);
+            //Recorremos cada fila del DataTable asignando a los controles de edición los valores de 
+            //los campos correspondientes
             foreach (DataRow row in dt.Rows)
             {
-                textBox1.Text = row["Id_Inventario"].ToString();
-                textBox2.Text = row["Id_Producto"].ToString();
-                textBox4.Text = row["Cantidad"].ToString();
-                comboBox4.Text = row["Tipo_De_Movimiento"].ToString();
-                comboBox3.Text = row["Id_Empleado"].ToString();
-                //  TRepresentaciongrafica.Text = row["Representacion_Grafica"].ToString();
-                dateTimePicker1.Text = row["Fecha"].ToString();
-                //TExistencia.Text = row["Existencia"].ToString();
-                //TIdcategoria.Text = row["Id_Categoria"].ToString();
-                //// MessageBox.Show(TIdcategoria.Text);
-                //TPrecio_venta.Text = row["Precio_De_Venta"].ToString();
+              
+                TNombre.Text = row["Nombre"].ToString();
+                CCategoria.Text = ObtenerNombreCategoria(row["Id_Categoria"].ToString());
+                TRepresentaciongrafica.Text = row["Representacion_Grafica"].ToString();
+           
+
 
             }
         } //Fin del metodo RecuperarDatos
+
 
     }
 }

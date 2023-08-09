@@ -89,27 +89,41 @@ namespace Sistema_Inventario
         {
             string vparametro = Program.vId_Producto.ToString();
             CNProducto CNProducto = new CNProducto();
-            DataTable dt = new DataTable(); //creamos un nuevo DataTable
-            dt = CNProducto.ProductoObtener (vparametro); //Llenamos el DataTable
-                                                              //Recorremos cada fila del DataTable asignando a los controles de edición los valores de 
-                                                              //los campos correspondientes
+            DataTable dt = new DataTable();
+            dt = CNProducto.ProductoObtener(vparametro);
+
             foreach (DataRow row in dt.Rows)
             {
-               TId_producto.Text = row["Id_Producto"].ToString();
+                TId_producto.Text = row["Id_Producto"].ToString();
                 TNombre.Text = row["Nombre"].ToString();
                 CEstado.Text = row["Estado"].ToString();
                 TMarca.Text = row["Marca"].ToString();
                 TRepresentaciongrafica.Text = row["Representacion_Grafica"].ToString();
                 DFecha_vencimiento.Text = row["Fecha_De_Vencimiento"].ToString();
                 TExistencia.Text = row["Existencia"].ToString();
-                TIdcategoria.Text = row["Id_Categoria"].ToString();
-               // MessageBox.Show(TIdcategoria.Text);
-                TPrecio_venta.Text = row["Precio_De_Venta"].ToString();
-                
-            }
-        } //Fin del metodo RecuperarDatos
 
-        
+                // Aquí obtenemos el nombre de la categoría en lugar del ID
+                CId_Categoria.Text = ObtenerNombreCategoria(row["Id_Categoria"].ToString());
+
+                TPrecio_venta.Text = row["Precio_De_Venta"].ToString();
+            }
+        }
+
+        private string ObtenerNombreCategoria(string idCategoria)
+        {
+            CNCategoria cncategoria = new CNCategoria();
+            DataTable dt = cncategoria.CategoriaConsultar(idCategoria);
+
+            if (dt.Rows.Count > 0)
+            {
+                return dt.Rows[0]["Nombre"].ToString();
+            }
+
+            return string.Empty;
+        }
+
+
+
 
 
         //Método propio para limpiar los objetos del formulario. Asegúrese de utilizar el nombre
@@ -128,7 +142,7 @@ namespace Sistema_Inventario
                 DFecha_vencimiento.Text = "01/01/1750";
             }
             TExistencia.Clear();
-            TIdcategoria.Clear();
+            CId_Categoria.SelectedItem = 0;
             CEstado.SelectedItem = 0;
             pictureBox1.Image = null;
             TPrecio_venta.Clear();
@@ -148,7 +162,7 @@ namespace Sistema_Inventario
             TMarca.Enabled = valor; //la propiedad Enabled habilita o inhabilita un objeto
             TExistencia.Enabled = valor;
             //DFecha_vencimiento.Valor;
-            TIdcategoria.Enabled = valor;
+            CId_Categoria.Enabled = valor;
             CEstado.Enabled = valor;
             pictureBox1.Enabled = valor;
             TRepresentaciongrafica.Enabled = valor;
@@ -157,151 +171,103 @@ namespace Sistema_Inventario
             TPrecio_venta.Enabled = valor;
 
             if (Program.nuevo)
-            TIdcategoria.Clear();
+            CId_Categoria.SelectedItem = 0;
             CEstado.SelectedIndex = 0;
           
         } //Fin del método HabilitaControles
 
         private void Bnuevo_Click(object sender, EventArgs e)
         {
-            LimpiaObjetos(); //LLama al método LimpiaObjetos para prepararlos para la nueva entrada
-            Program.nuevo = true; //Se especifica que se agregará un nuevo registro
+            LimpiaObjetos();
+            Program.nuevo = true;
             Program.modificar = false;
-            HabilitaBotones(); //Se habilitan solo aquellos botones que sean necesarios
-            TNombre.Focus(); //Coloca el cursor en el TextBox indicado
+            HabilitaBotones();
+            TNombre.Focus();
             HabilitaControles(true);
 
-
-            CIdcategoria.Items.Clear();
-            CNCategoria cncategoria = new CNCategoria();
-            DataRowCollection dt = cncategoria.CategoriaConsultar("").Rows;
-
-            CIdcategoria.DataSource = cncategoria.CategoriaConsultar("");
-
-            CIdcategoria.DisplayMember = cncategoria.CategoriaConsultar("").Columns[1].ToString();
-            CIdcategoria.ValueMember = cncategoria.CategoriaConsultar("").Columns[0].ToString();
-
-
+           
 
         }
+
 
         private void Bguardar_Click(object sender, EventArgs e)
         {
-            //Validamos los datos requeridos entes de Insertar o Actualizar
-            //if (TId_producto.Text == String.Empty) //Si el textbox está vacío mostrar un error y ubicar 
-            //{ // el cursor en dicho textbox 
-            //    MessageBox.Show("Debe rellenar todos los campos!");
-            //    TId_producto.Focus();
-            //}
-            //else
-            if (TNombre.Text == String.Empty)
+            // Validamos los datos requeridos antes de Insertar o Actualizar
+            if (string.IsNullOrEmpty(TNombre.Text) ||
+                string.IsNullOrEmpty(TMarca.Text) ||
+                string.IsNullOrEmpty(TExistencia.Text) ||
+                CId_Categoria.SelectedItem == null ||
+                string.IsNullOrEmpty(CEstado.Text) ||
+                string.IsNullOrEmpty(TRepresentaciongrafica.Text) ||
+                string.IsNullOrEmpty(TPrecio_venta.Text))
             {
                 MessageBox.Show("Debe rellenar todos los campos!");
-                TNombre.Focus();
-            }
-            else
-            if (TMarca.Text == String.Empty)
-            {
-                MessageBox.Show("Debe rellenar todos los campos!");
-                TMarca.Focus();
-            }
-            else
-            if (TExistencia.Text == String.Empty)
-            {
-                MessageBox.Show("Debe rellenar todos los campos!");
-                TExistencia.Focus();
-            }
-            else
-            if (TIdcategoria.Text == String.Empty)
-            {
-                MessageBox.Show("Debe rellenar todos los campos!");
-                TIdcategoria.Focus();
-            }
-            else
-            if (CEstado.Text == String.Empty)
-            {
-                MessageBox.Show("Debe rellenar todos los campos!");
-                CEstado.Focus();
-            }
-            else
-            if (TRepresentaciongrafica.Text == String.Empty)
-            {
-                MessageBox.Show("Debe rellenar todos los campos!");
-              
-            }
-            else
-            if (TPrecio_venta.Text == String.Empty)
-            {
-                MessageBox.Show("Debe rellenar todos los campos!");
-                TPrecio_venta.Focus();
+                return;
             }
 
-            else
+            int categoriaId;
+
+            if (CId_Categoria.SelectedItem != null && CId_Categoria.SelectedItem is DataRowView)
             {
-                //Si todo es correcto procede a Insertar o actualizar según corresponda, usaremos las 
-                //variables globales a toda la solución contenidas en Program.CS
-                if (Program.nuevo) //Si la variable nuevo llega con valor true se van a Insertar nuevos datos
+                DataRowView selectedRow = CId_Categoria.SelectedItem as DataRowView;
+                if (selectedRow.Row["Id_Categoria"] != null && int.TryParse(selectedRow.Row["Id_Categoria"].ToString(), out categoriaId))
                 {
+                    int existenciaInt, precioventaInt;
 
-                    //string existencia = TExistencias.Text;
-                    //string existencia = TExistencia.ToString();
+                    if (!int.TryParse(TExistencia.Text, out existenciaInt) ||
+                        !int.TryParse(TPrecio_venta.Text, out precioventaInt))
+                    {
+                        MessageBox.Show("Existencia y Precio de Venta deben ser valores numéricos válidos.");
+                        return;
+                    }
 
-                    string categoria = TIdcategoria.Text; // Si CIdcategoria es un ComboBox
-                    string existencia = TExistencia.Text;
-                    string precioventa = TPrecio_venta.Text;
-
-                    mensaje = CNProducto.Insertar(Program.vId_Producto,
-                                                  TNombre.Text,
-                                                  int.Parse(categoria), // Asumiendo que pId_Categoria es de tipo int
-                                                  CEstado.Text,
-                                                  TMarca.Text,
-                                                  DFecha_vencimiento.Value,
-                                                  TRepresentaciongrafica.Text,
-                                                  int.Parse(existencia), // Asumiendo que pExistencia es de tipo int
-                                                  decimal.Parse(precioventa)); // Asumiendo que pPrecio_De_Venta es de tipo int
-
+                    if (Program.nuevo)
+                    {
+                        mensaje = CNProducto.Insertar(Program.vId_Producto,
+                                                      TNombre.Text,
+                                                      categoriaId,
+                                                      CEstado.Text,
+                                                      TMarca.Text,
+                                                      DFecha_vencimiento.Value,
+                                                      TRepresentaciongrafica.Text,
+                                                      existenciaInt,
+                                                      precioventaInt);
+                    }
+                    else if (Program.modificar)
+                    {
+                        mensaje = CNProducto.Actualizar(Program.vId_Producto,
+                                                        TNombre.Text,
+                                                        categoriaId,
+                                                        CEstado.Text,
+                                                        TMarca.Text,
+                                                        DFecha_vencimiento.Value,
+                                                        TRepresentaciongrafica.Text,
+                                                        existenciaInt,
+                                                        precioventaInt);
+                    }
                 }
-                else //de lo contrario se Modificarán los datos del registro correspondiente
+                else
                 {
-                   
-                    //Se llama al método Insertar de la clase CNSuplidor de la capa de negocio
-                    //pasándole como parámetros los valores leídos en los controles del formulario. 
-                    // como: textbox, combobox, DateTimePicker, etc.
-                    //Los parámetros se pasan en el orden en que se reciben y con el tipo de dato esperado
-
-                    string categoria = TIdcategoria.Text; 
-                    string existencia = TExistencia.Text;
-                    string precioventa = TPrecio_venta.Text;
-
-                    mensaje = CNProducto.Actualizar(Program.vId_Producto,
-                                                  TNombre.Text,
-                                                  int.Parse(categoria), 
-                                                  CEstado.Text,
-                                                  TMarca.Text,
-                                                  DFecha_vencimiento.Value,
-                                                  TRepresentaciongrafica.Text,
-                                                  int.Parse(existencia), 
-                                                  int.Parse(precioventa)); 
-
+                    MessageBox.Show("Categoría no válida.");
+                    return;
                 }
-                //Se muestra el mensaje devuelto por la capa de negocio respecto al resultado de la operación 
-                MessageBox.Show(mensaje, "Mensage de Botica Sila", MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar una categoría válida.");
+                return;
+            }
 
-                //Se prepara todo para la próxima operación
-                Program.nuevo = false;
-                Program.modificar = false;
-                HabilitaBotones(); //Habilita los objetos y botones correspondientes
-                LimpiaObjetos(); //Llama al método LimpiaObjetos
-            } //Fin del else para validar los datos
-              //            j) Hacer doble clic en un lugar vacío del formulario para generar el evento Load del mismo.
-              //Este se ejecuta cuando se habilita el formulario. Escribir dentro el siguiente código:
-            Program.nuevo = false; //Valores de las variables globales nuevo y modificar
+            // Muestra el mensaje devuelto por la capa de negocio respecto al resultado de la operación
+            MessageBox.Show(mensaje, "Mensaje de Botica Sila", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            // Preparar todo para la próxima operación
+            Program.nuevo = false;
             Program.modificar = false;
-
-            HabilitaBotones(); //Se habilitarán los objetos y los botones necesarios.
-
+            HabilitaBotones();
+            LimpiaObjetos();
         }
+
 
         private void Bcancelar_Click(object sender, EventArgs e)
         {
@@ -335,20 +301,27 @@ namespace Sistema_Inventario
 
         private void Producto_Load(object sender, EventArgs e)
         {
-
-           // Program.nuevo = false;
             TRepresentaciongrafica.TextChanged += TRepresentaciongrafica_TextChanged;
-            // Deshabilitar el TextBox
-            //TRepresentaciongrafica.Enabled = false;
-
-
             Program.nuevo = false;
             Program.modificar = false;
-            HabilitaBotones(); //Habilita los objetos y botones correspondientes
-            LimpiaObjetos(); //Llama al método LimpiaObjetos
+            HabilitaBotones();
+            LimpiaObjetos();
 
+            CNCategoria cncategoria = new CNCategoria();
+            DataTable dtCategorias = cncategoria.CategoriaConsultarTodos();
 
+            if (dtCategorias.Rows.Count > 0)
+            {
+                CId_Categoria.DataSource = dtCategorias;
+                CId_Categoria.DisplayMember = "Nombre"; // Cambia esto al nombre de la columna de nombre de categoría
+                CId_Categoria.ValueMember = "Id_Categoria"; // Cambia esto al nombre de la columna de ID de categoría
+            }
+            else
+            {
+                MessageBox.Show("No se encontraron categorías en la base de datos.");
+            }
         }
+
 
         private void Producto_Activated(object sender, EventArgs e)
         {
