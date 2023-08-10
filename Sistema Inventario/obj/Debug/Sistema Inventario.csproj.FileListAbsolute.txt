@@ -208,3 +208,14 @@ C:\C#\Sistema-Inventario-Farmacia\Sistema Inventario\bin\Debug\pt\Microsoft.Repo
 C:\C#\Sistema-Inventario-Farmacia\Sistema Inventario\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
 C:\C#\Sistema-Inventario-Farmacia\Sistema Inventario\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 C:\C#\Sistema-Inventario-Farmacia\Sistema Inventario\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+<<<<<<< HEAD
+=======
+C:\C#\Sistema-Inventario-Farmacia\Sistema Inventario\obj\Debug\Sistema_Inventario.FReporteEmpleado.resources
+C:\C#\Sistema-Inventario-Farmacia\Sistema Inventario\obj\Debug\Sistema_Inventario.FReporteProducto.resources
+<<<<<<< HEAD
+=======
+C:\C#\Sistema-Inventario-Farmacia\Sistema Inventario\obj\Debug\Sistema_Inventario.FReporteMovimientoInventario.resources
+C:\C#\Sistema-Inventario-Farmacia\Sistema Inventario\bin\Debug\DBInventario.mdf
+C:\C#\Sistema-Inventario-Farmacia\Sistema Inventario\bin\Debug\DBInventario_log.ldf
+>>>>>>> 4a61cec57ebcc555cc9d2380a0c67ff7ffe68fc1
+>>>>>>> 48c0105076307093662ea2394aa493090dadf18f

@@ -80,6 +80,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
+=======
+    <Compile Include="DBInventarioDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBInventarioDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DBInventarioDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBInventarioDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DBInventarioDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBInventarioDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DBInventarioDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBInventarioDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FReporte.Designer.cs">
+      <DependentUpon>FReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FReporteProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FReporteProducto.Designer.cs">
+      <DependentUpon>FReporteProducto.cs</DependentUpon>
+    </Compile>
+>>>>>>> 48c0105076307093662ea2394aa493090dadf18f
     <Compile Include="Guardar copia de seguridad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +220,16 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+<<<<<<< HEAD
+=======
+    <EmbeddedResource Include="Empleado.rdlc" />
+    <EmbeddedResource Include="FReporte.resx">
+      <DependentUpon>FReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FReporteProducto.resx">
+      <DependentUpon>FReporteProducto.cs</DependentUpon>
+    </EmbeddedResource>
+>>>>>>> 48c0105076307093662ea2394aa493090dadf18f
     <EmbeddedResource Include="Guardar copia de seguridad.resx">
       <DependentUpon>Guardar copia de seguridad.cs</DependentUpon>
     </EmbeddedResource>
@@ -227,6 +272,10 @@
     <EmbeddedResource Include="Movimiento Inventario.resx">
       <DependentUpon>Movimiento Inventario.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
+=======
+    <EmbeddedResource Include="Producto.rdlc" />
+>>>>>>> 48c0105076307093662ea2394aa493090dadf18f
     <EmbeddedResource Include="Producto.resx">
       <DependentUpon>Producto.cs</DependentUpon>
     </EmbeddedResource>
@@ -246,6 +295,53 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+<<<<<<< HEAD
+=======
+    <None Include="DBInventarioDataSet.xsc">
+      <DependentUpon>DBInventarioDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DBInventarioDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBInventarioDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBInventarioDataSet.xss">
+      <DependentUpon>DBInventarioDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DBInventarioDataSet1.xsc">
+      <DependentUpon>DBInventarioDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DBInventarioDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBInventarioDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBInventarioDataSet1.xss">
+      <DependentUpon>DBInventarioDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DBInventarioDataSet2.xsc">
+      <DependentUpon>DBInventarioDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="DBInventarioDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBInventarioDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBInventarioDataSet2.xss">
+      <DependentUpon>DBInventarioDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="DBInventarioDataSet3.xsc">
+      <DependentUpon>DBInventarioDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="DBInventarioDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBInventarioDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBInventarioDataSet3.xss">
+      <DependentUpon>DBInventarioDataSet3.xsd</DependentUpon>
+    </None>
+>>>>>>> 48c0105076307093662ea2394aa493090dadf18f
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
