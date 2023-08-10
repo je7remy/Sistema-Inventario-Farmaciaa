@@ -72,8 +72,8 @@ namespace Sistema_Inventario
 
         private void BCancelar_Click(object sender, EventArgs e)
         {
-            FReporteProducto reporte = new FReporteProducto();
-            reporte.ShowDialog();
+            //FReporteProducto reporte = new FReporteProducto();
+            //reporte.ShowDialog();
         }
 
         private void BPrimero_Click(object sender, EventArgs e)

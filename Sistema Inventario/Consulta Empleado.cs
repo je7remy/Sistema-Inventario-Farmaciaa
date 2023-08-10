@@ -110,8 +110,8 @@ namespace Sistema_Inventario
 
         private void BCancelar_Click(object sender, EventArgs e)
         {
-            FReporteEmpleado reporte = new FReporteEmpleado();
-            reporte.ShowDialog();
+            //FReporteEmpleado reporte = new FReporteEmpleado();
+            //reporte.ShowDialog();
         }
 
         private void BAceptar_Click(object sender, EventArgs e)

@@ -501,7 +501,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -593,7 +592,7 @@
         <DataSetName>DataSet1</DataSetName>
         <Top>0.10583cm</Top>
         <Height>2.12604cm</Height>
-        <Width>30.73891cm</Width>
+        <Width>30.73888cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -601,7 +600,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>1.15625in</Height>
+    <Height>2.38189in</Height>
     <Style />
   </Body>
   <Width>12.10193in</Width>

@@ -150,8 +150,6 @@ C:\C#\Sistema-Inventario-Farmacia-main\Sistema Inventario\obj\Debug\Sistema Inve
 C:\C#\Sistema-Inventario-Farmacia-main\Sistema Inventario\obj\Debug\Sistema Inventario.csproj.CopyComplete
 C:\C#\Sistema-Inventario-Farmacia-main\Sistema Inventario\obj\Debug\Sistema Inventario.exe
 C:\C#\Sistema-Inventario-Farmacia-main\Sistema Inventario\obj\Debug\Sistema Inventario.pdb
-C:\C#\Sistema-Inventario-Farmacia\Sistema Inventario\obj\Debug\RdlCompile.cache
-C:\C#\Sistema-Inventario-Farmacia\Sistema Inventario\obj\Debug\RdlCompile.compiled
 C:\C#\Sistema-Inventario-Farmacia\Sistema Inventario\bin\Debug\SqlServerTypes\x64\msvcr120.dll
 C:\C#\Sistema-Inventario-Farmacia\Sistema Inventario\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
 C:\C#\Sistema-Inventario-Farmacia\Sistema Inventario\bin\Debug\SqlServerTypes\x86\msvcr120.dll
@@ -210,6 +208,3 @@ C:\C#\Sistema-Inventario-Farmacia\Sistema Inventario\bin\Debug\pt\Microsoft.Repo
 C:\C#\Sistema-Inventario-Farmacia\Sistema Inventario\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
 C:\C#\Sistema-Inventario-Farmacia\Sistema Inventario\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 C:\C#\Sistema-Inventario-Farmacia\Sistema Inventario\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
-C:\C#\Sistema-Inventario-Farmacia\Sistema Inventario\obj\Debug\Sistema_Inventario.FReporteEmpleado.resources
-C:\C#\Sistema-Inventario-Farmacia\Sistema Inventario\obj\Debug\Sistema_Inventario.FReporteProducto.resources
-C:\C#\Sistema-Inventario-Farmacia\Sistema Inventario\obj\Debug\Sistema_Inventario.FReporteMovimientoInventario.resources
