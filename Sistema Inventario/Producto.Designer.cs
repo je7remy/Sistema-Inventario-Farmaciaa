@@ -59,8 +59,7 @@ namespace Sistema_Inventario
             this.label10 = new System.Windows.Forms.Label();
             this.TPrecio_venta = new System.Windows.Forms.TextBox();
             this.TRepresentaciongrafica = new System.Windows.Forms.TextBox();
-            this.TIdcategoria = new System.Windows.Forms.TextBox();
-            this.CIdcategoria = new System.Windows.Forms.ComboBox();
+            this.CId_Categoria = new System.Windows.Forms.ComboBox();
             this.Ptitulo.SuspendLayout();
             this.Pbotones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -293,9 +292,9 @@ namespace Sistema_Inventario
             this.label6.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(581, 136);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(165, 31);
+            this.label6.Size = new System.Drawing.Size(128, 31);
             this.label6.TabIndex = 6;
-            this.label6.Text = "Id_Categoria";
+            this.label6.Text = "Categoria";
             // 
             // label8
             // 
@@ -432,22 +431,30 @@ namespace Sistema_Inventario
             this.TRepresentaciongrafica.TabIndex = 31;
             this.TRepresentaciongrafica.TextChanged += new System.EventHandler(this.TRepresentaciongrafica_TextChanged);
             // 
-            // TIdcategoria
+            // CId_Categoria
             // 
-            this.TIdcategoria.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TIdcategoria.Location = new System.Drawing.Point(776, 128);
-            this.TIdcategoria.Name = "TIdcategoria";
-            this.TIdcategoria.Size = new System.Drawing.Size(251, 39);
-            this.TIdcategoria.TabIndex = 32;
-            // 
-            // CIdcategoria
-            // 
-            this.CIdcategoria.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CIdcategoria.FormattingEnabled = true;
-            this.CIdcategoria.Location = new System.Drawing.Point(776, 173);
-            this.CIdcategoria.Name = "CIdcategoria";
-            this.CIdcategoria.Size = new System.Drawing.Size(251, 39);
-            this.CIdcategoria.TabIndex = 34;
+            this.CId_Categoria.DisplayMember = "Cuidado Personal\r\nVitaminas\r\nDermocosmética\r\nBienestar\r\nBebés\r\nNutrición Deportiv" +
+    "a\r\nHerboristería\r\nVeterinaria\r\nOrtopedia\r\nAntialérgicos\r\nAntiácidos\r\nLaxantes";
+            this.CId_Categoria.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CId_Categoria.FormattingEnabled = true;
+            this.CId_Categoria.Items.AddRange(new object[] {
+            "Cuidado Personal",
+            "Vitaminas",
+            "Dermocosmética",
+            "Bienestar",
+            "Bebés",
+            "Nutrición Deportiva",
+            "Herboristería",
+            "Veterinaria",
+            "Ortopedia",
+            "Antialérgicos",
+            "Antiácidos",
+            "Laxantes"});
+            this.CId_Categoria.Location = new System.Drawing.Point(762, 128);
+            this.CId_Categoria.Name = "CId_Categoria";
+            this.CId_Categoria.Size = new System.Drawing.Size(251, 39);
+            this.CId_Categoria.TabIndex = 34;
+            this.CId_Categoria.Text = "Medicamentos";
             // 
             // Producto
             // 
@@ -455,8 +462,7 @@ namespace Sistema_Inventario
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1081, 823);
-            this.Controls.Add(this.CIdcategoria);
-            this.Controls.Add(this.TIdcategoria);
+            this.Controls.Add(this.CId_Categoria);
             this.Controls.Add(this.TRepresentaciongrafica);
             this.Controls.Add(this.TPrecio_venta);
             this.Controls.Add(this.label10);
@@ -531,7 +537,6 @@ namespace Sistema_Inventario
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox TPrecio_venta;
         private System.Windows.Forms.TextBox TRepresentaciongrafica;
-        private System.Windows.Forms.TextBox TIdcategoria;
-        private System.Windows.Forms.ComboBox CIdcategoria;
+        private System.Windows.Forms.ComboBox CId_Categoria;
     }
 }

@@ -37,7 +37,7 @@ namespace CapaNegocio
             objCDCategoria.Descripcion = pDescripcion;
 
 
-            return objCDCategoria.Insertar(objCDCategoria);
+            return objCDCategoria.Actualizar(objCDCategoria);
      
     }//Fin del método Actualizar
 
