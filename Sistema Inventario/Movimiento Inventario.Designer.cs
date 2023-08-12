@@ -46,19 +46,19 @@ namespace Sistema_Inventario
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.toolTipempleado = new System.Windows.Forms.ToolTip(this.components);
             this.BBuscar = new System.Windows.Forms.Button();
-            this.CEmpleado = new System.Windows.Forms.ComboBox();
+            this.CCEmpleado = new System.Windows.Forms.ComboBox();
             this.DFecha = new System.Windows.Forms.DateTimePicker();
             this.CTipodemovimiento = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.TCantidad = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.CCategoria = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.TRepresentaciongrafica = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.TNombre = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.CCategoria = new System.Windows.Forms.ComboBox();
             this.Ptitulo.SuspendLayout();
             this.Pbotones.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -170,6 +170,7 @@ namespace Sistema_Inventario
             this.Bguardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolTipempleado.SetToolTip(this.Bguardar, "Guardar cambios de empleado");
             this.Bguardar.UseVisualStyleBackColor = false;
+            this.Bguardar.Click += new System.EventHandler(this.Bguardar_Click);
             // 
             // label2
             // 
@@ -268,14 +269,14 @@ namespace Sistema_Inventario
             this.BBuscar.UseVisualStyleBackColor = false;
             this.BBuscar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // CEmpleado
+            // CCEmpleado
             // 
-            this.CEmpleado.BackColor = System.Drawing.Color.White;
-            this.CEmpleado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CEmpleado.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CEmpleado.FormattingEnabled = true;
-            this.CEmpleado.Items.AddRange(new object[] {
+            this.CCEmpleado.BackColor = System.Drawing.Color.White;
+            this.CCEmpleado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CCEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CCEmpleado.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CCEmpleado.FormattingEnabled = true;
+            this.CCEmpleado.Items.AddRange(new object[] {
             "Jeremy",
             "Jhonny",
             "Carlos",
@@ -285,10 +286,10 @@ namespace Sistema_Inventario
             "Gabriel",
             "Mariia",
             "Rosa"});
-            this.CEmpleado.Location = new System.Drawing.Point(259, 207);
-            this.CEmpleado.Name = "CEmpleado";
-            this.CEmpleado.Size = new System.Drawing.Size(251, 39);
-            this.CEmpleado.TabIndex = 23;
+            this.CCEmpleado.Location = new System.Drawing.Point(259, 207);
+            this.CCEmpleado.Name = "CCEmpleado";
+            this.CCEmpleado.Size = new System.Drawing.Size(251, 39);
+            this.CCEmpleado.TabIndex = 23;
             // 
             // DFecha
             // 
@@ -351,6 +352,18 @@ namespace Sistema_Inventario
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de los productos";
             // 
+            // CCategoria
+            // 
+            this.CCategoria.BackColor = System.Drawing.Color.White;
+            this.CCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CCategoria.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CCategoria.FormattingEnabled = true;
+            this.CCategoria.Location = new System.Drawing.Point(187, 182);
+            this.CCategoria.Name = "CCategoria";
+            this.CCategoria.Size = new System.Drawing.Size(251, 39);
+            this.CCategoria.TabIndex = 31;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -407,18 +420,6 @@ namespace Sistema_Inventario
             this.label6.TabIndex = 30;
             this.label6.Text = "Nombre";
             // 
-            // CCategoria
-            // 
-            this.CCategoria.BackColor = System.Drawing.Color.White;
-            this.CCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CCategoria.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CCategoria.FormattingEnabled = true;
-            this.CCategoria.Location = new System.Drawing.Point(187, 182);
-            this.CCategoria.Name = "CCategoria";
-            this.CCategoria.Size = new System.Drawing.Size(251, 39);
-            this.CCategoria.TabIndex = 31;
-            // 
             // Movimiento_Inventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -429,7 +430,7 @@ namespace Sistema_Inventario
             this.Controls.Add(this.TCantidad);
             this.Controls.Add(this.CTipodemovimiento);
             this.Controls.Add(this.DFecha);
-            this.Controls.Add(this.CEmpleado);
+            this.Controls.Add(this.CCEmpleado);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label5);
@@ -479,7 +480,7 @@ namespace Sistema_Inventario
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ToolTip toolTipempleado;
-        private System.Windows.Forms.ComboBox CEmpleado;
+        private System.Windows.Forms.ComboBox CCEmpleado;
         private System.Windows.Forms.Button BBuscar;
         private System.Windows.Forms.DateTimePicker DFecha;
         private System.Windows.Forms.ComboBox CTipodemovimiento;

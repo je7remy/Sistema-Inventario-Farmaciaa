@@ -68,6 +68,21 @@ namespace Sistema_Inventario
             {
                 MessageBox.Show("No se encontraron categorías en la base de datos.");
             }
+
+            CNEmpleado cnempleado = new CNEmpleado();
+            DataTable dtempleado = cnempleado.EmpleadoObtenerTodos();
+
+            if (dtempleado.Rows.Count > 0)
+            {
+                CCEmpleado.DataSource = dtempleado;
+                CCEmpleado.DisplayMember = "Nombre"; // Cambia esto al nombre de la columna de nombre de categoría
+                CCEmpleado.ValueMember = "Id_Empleado"; // Cambia esto al nombre de la columna de ID de categoría
+            }
+            else
+            {
+                MessageBox.Show("No se encontraron categorías en la base de datos.");
+            }
+
         }
 
         private string ObtenerNombreCategoria(string idCategoria)
@@ -83,7 +98,26 @@ namespace Sistema_Inventario
             return string.Empty;
         }
 
+        private string ObtenerNombreEmpleado(string idEmpleado)
+        {
+            CNEmpleado cnempleado = new CNEmpleado();
+            DataTable dtempleado = cnempleado.EmpleadoObtener(idEmpleado);
 
+            if (dtempleado.Rows.Count > 0)
+            {
+                return dtempleado.Rows[0]["Nombre"].ToString();
+            }
+
+            return string.Empty;
+        }
+
+        private void Bguardar_Click(object sender, EventArgs e)
+        
+            {
+          
+            }
+
+        
 
         private void Bsalir_Click(object sender, EventArgs e)
         {
@@ -138,7 +172,7 @@ namespace Sistema_Inventario
         {
 
             textBox1.Clear();
-            CEmpleado.Text = null;
+            CCEmpleado.Text = null;
             TCantidad.Clear();
             CTipodemovimiento.Text = null;
             DFecha.Value = System.DateTime.Now.Date;
