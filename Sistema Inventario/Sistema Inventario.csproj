@@ -85,6 +85,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBInventarioEmpleado.xsd</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="DBInventarioMovimiento_Inventario.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -95,12 +96,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBInventarioProducto.xsd</DependentUpon>
     </Compile>
+=======
+>>>>>>> e4a4aa4c8153329e30547797633e222af049aa62
     <Compile Include="FREmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FREmpleado.Designer.cs">
       <DependentUpon>FREmpleado.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="FRMovimientoInventario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +117,8 @@
     <Compile Include="FRProducto.Designer.cs">
       <DependentUpon>FRProducto.cs</DependentUpon>
     </Compile>
+=======
+>>>>>>> e4a4aa4c8153329e30547797633e222af049aa62
     <Compile Include="Guardar copia de seguridad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,12 +227,15 @@
     <EmbeddedResource Include="FREmpleado.resx">
       <DependentUpon>FREmpleado.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="FRMovimientoInventario.resx">
       <DependentUpon>FRMovimientoInventario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FRProducto.resx">
       <DependentUpon>FRProducto.cs</DependentUpon>
     </EmbeddedResource>
+=======
+>>>>>>> e4a4aa4c8153329e30547797633e222af049aa62
     <EmbeddedResource Include="Guardar copia de seguridad.resx">
       <DependentUpon>Guardar copia de seguridad.cs</DependentUpon>
     </EmbeddedResource>
@@ -289,8 +298,11 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="REmpleado.rdlc" />
+<<<<<<< HEAD
     <EmbeddedResource Include="RMovimientoInventario.rdlc" />
     <EmbeddedResource Include="RProducto.rdlc" />
+=======
+>>>>>>> e4a4aa4c8153329e30547797633e222af049aa62
     <None Include="DBInventarioEmpleado.xsc">
       <DependentUpon>DBInventarioEmpleado.xsd</DependentUpon>
     </None>
@@ -302,6 +314,7 @@
     <None Include="DBInventarioEmpleado.xss">
       <DependentUpon>DBInventarioEmpleado.xsd</DependentUpon>
     </None>
+<<<<<<< HEAD
     <None Include="DBInventarioMovimiento_Inventario.xsc">
       <DependentUpon>DBInventarioMovimiento_Inventario.xsd</DependentUpon>
     </None>
@@ -324,6 +337,8 @@
     <None Include="DBInventarioProducto.xss">
       <DependentUpon>DBInventarioProducto.xsd</DependentUpon>
     </None>
+=======
+>>>>>>> e4a4aa4c8153329e30547797633e222af049aa62
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
