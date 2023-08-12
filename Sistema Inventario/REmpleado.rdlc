@@ -573,6 +573,10 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+<<<<<<< HEAD
+=======
+                    <rd:Selected>true</rd:Selected>
+>>>>>>> e4a4aa4c8153329e30547797633e222af049aa62
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -726,7 +730,11 @@
         <DataSetName>Empleado</DataSetName>
         <Top>0.07056cm</Top>
         <Left>0.00211cm</Left>
+<<<<<<< HEAD
         <Height>4.97416cm</Height>
+=======
+        <Height>4.97417cm</Height>
+>>>>>>> e4a4aa4c8153329e30547797633e222af049aa62
         <Width>34.8268cm</Width>
         <Style>
           <Border>
