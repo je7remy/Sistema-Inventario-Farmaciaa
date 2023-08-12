@@ -148,20 +148,20 @@ namespace Sistema_Inventario
 
         private void datosGeneralesDelEmpleadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-        //    FReporteEmpleado reporte = new FReporteEmpleado();
-        //    reporte.ShowDialog();
+           FREmpleado reporte = new FREmpleado();
+            reporte.ShowDialog();
         }
 
         private void datosGeneralesDeLosProductosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //FReporteProducto reporte = new FReporteProducto();
-            //reporte.ShowDialog();
+            FRProducto reporte = new FRProducto();
+            reporte.ShowDialog();
         }
 
         private void datosGeneralesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //FReporteMovimientoInventario reporte = new FReporteMovimientoInventario();
-            //reporte.ShowDialog();
+            FRMovimientoInventario reporte = new FRMovimientoInventario();
+            reporte.ShowDialog();
         }
     }
     }

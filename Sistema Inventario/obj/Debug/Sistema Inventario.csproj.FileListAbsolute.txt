@@ -297,3 +297,8 @@ C:\repos\Sistema-Inventario-Farmacia\Sistema Inventario\obj\Debug\Sistema Invent
 C:\repos\Sistema-Inventario-Farmacia\Sistema Inventario\obj\Debug\Sistema Inventario.csproj.CopyComplete
 C:\repos\Sistema-Inventario-Farmacia\Sistema Inventario\obj\Debug\Sistema Inventario.exe
 C:\repos\Sistema-Inventario-Farmacia\Sistema Inventario\obj\Debug\Sistema Inventario.pdb
+C:\C#\Sistema-Inventario-Farmacia\Sistema Inventario\obj\Debug\Sistema_Inventario.FREmpleado.resources
+C:\C#\Sistema-Inventario-Farmacia\Sistema Inventario\obj\Debug\RdlCompile.cache
+C:\C#\Sistema-Inventario-Farmacia\Sistema Inventario\obj\Debug\RdlCompile.compiled
+C:\C#\Sistema-Inventario-Farmacia\Sistema Inventario\obj\Debug\Sistema_Inventario.FRProducto.resources
+C:\C#\Sistema-Inventario-Farmacia\Sistema Inventario\obj\Debug\Sistema_Inventario.FRMovimientoInventario.resources

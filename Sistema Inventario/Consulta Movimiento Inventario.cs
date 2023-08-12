@@ -29,8 +29,8 @@ namespace Sistema_Inventario
 
         private void BCancelar_Click(object sender, EventArgs e)
         {
-            //FReporteMovimientoInventario reporte = new FReporteMovimientoInventario();
-            //reporte.ShowDialog();
+            FRMovimientoInventario reporte = new FRMovimientoInventario();
+            reporte.ShowDialog();
         }
 
         private void BAceptar_Click(object sender, EventArgs e)
