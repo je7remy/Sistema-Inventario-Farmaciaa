@@ -148,8 +148,8 @@ namespace Sistema_Inventario
 
         private void datosGeneralesDelEmpleadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-        //    FReporteEmpleado reporte = new FReporteEmpleado();
-        //    reporte.ShowDialog();
+           FREmpleado reporte = new FREmpleado();
+            reporte.ShowDialog();
         }
 
         private void datosGeneralesDeLosProductosToolStripMenuItem_Click(object sender, EventArgs e)
